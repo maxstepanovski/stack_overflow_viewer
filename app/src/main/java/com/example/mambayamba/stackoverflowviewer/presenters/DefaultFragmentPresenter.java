@@ -15,17 +15,21 @@ import rx.Observable;
 /**
  * Created by mambayamba on 14.11.2016.
  */
-public class SearchFragmentPresenter implements QuestionModelInterface {
+public class DefaultFragmentPresenter implements QuestionModelInterface {
     private SearchFragmentView viewElement;
     private QuestionModel questionModel;
 
-    public SearchFragmentPresenter(SearchFragmentView viewElement){
+    public DefaultFragmentPresenter(SearchFragmentView viewElement){
         this.viewElement = viewElement;
         this.questionModel = new QuestionModel(this);
     }
 
     public Observable<JsonQuestionResponse> initializeDefaultQuestions(){
         return questionModel.getDefaultQuestions();
+    }
+
+    public Observable<JsonQuestionResponse> initializeFeaturedQuestions(){
+        return questionModel.getFeaturedQuestions();
     }
 
     @Override

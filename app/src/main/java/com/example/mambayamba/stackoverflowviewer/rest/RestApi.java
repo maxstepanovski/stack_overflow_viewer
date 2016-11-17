@@ -23,4 +23,7 @@ public interface RestApi {
 
     @GET("/2.2/users/{ids}?order=desc&sort=name&site=stackoverflow")
     Observable<JsonUserResponse> loadUser(@Path("ids") String userId);
+
+    @GET("/2.2/questions?pagesize=50&order=desc&sort=activity&site=stackoverflow&filter=!LaSRLvLaUqjy_0jt2_gY-I")
+    Observable<JsonQuestionResponse> loadFeaturedQuestions();
 }

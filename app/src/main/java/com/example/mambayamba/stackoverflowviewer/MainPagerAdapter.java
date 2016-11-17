@@ -4,8 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.mambayamba.stackoverflowviewer.SearchFragment;
-
 /**
  * Created by mambayamba on 13.11.2016.
  */
@@ -20,15 +18,15 @@ public class MainPagerAdapter extends FragmentPagerAdapter{
     public Fragment getItem(int position) {
         switch(position){
             case 0:
-                return new SearchFragment();
+                return new DefaultFragment();
             case 1:
-                return new SearchFragment();
+                return new DefaultFragment();
             case 2:
-                return new SearchFragment();
+                return new DefaultFragment();
             case 3:
-                return new SearchFragment();
+                return new DefaultFragment();
             default:
-                return new SearchFragment();
+                return new DefaultFragment();
         }
     }
 

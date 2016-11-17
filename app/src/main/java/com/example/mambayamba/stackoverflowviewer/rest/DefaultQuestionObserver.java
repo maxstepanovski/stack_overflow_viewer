@@ -1,38 +1,41 @@
 package com.example.mambayamba.stackoverflowviewer.rest;
 
+import android.util.Log;
+
 import com.example.mambayamba.stackoverflowviewer.model.Question.Item;
 import com.example.mambayamba.stackoverflowviewer.model.Question.JsonQuestionResponse;
-import com.example.mambayamba.stackoverflowviewer.presenters.SearchFragmentPresenter;
+import com.example.mambayamba.stackoverflowviewer.presenters.DefaultFragmentPresenter;
 
 import java.util.List;
 
 import me.tatarka.rxloader.RxLoaderObserver;
-import rx.Observer;
 
 /**
  * Created by mambayamba on 16.11.2016.
  */
 public class DefaultQuestionObserver extends RxLoaderObserver<JsonQuestionResponse> {
-    private SearchFragmentPresenter presenter;
+    private DefaultFragmentPresenter presenter;
 
-    public DefaultQuestionObserver(SearchFragmentPresenter presenter) {
+    public DefaultQuestionObserver(DefaultFragmentPresenter presenter) {
         this.presenter = presenter;
     }
 
     @Override
     public void onStarted() {
-//        presenter.passShowLoading();
+        presenter.passShowLoading();
     }
 
     @Override
     public void onNext(JsonQuestionResponse value) {
         List<Item> questions = value.getItems();
+        for(Item item:questions)
+            Log.d("happy", item.getTitle()+" "+item.getAnswerCount()+" "+item.getTags().toString()+" "+item.getViewCount()+"\n");
         presenter.passShowList(questions);
     }
 
     @Override
     public void onCompleted() {
-//        presenter.passHideLoading();
+        presenter.passHideLoading();
     }
 
     @Override

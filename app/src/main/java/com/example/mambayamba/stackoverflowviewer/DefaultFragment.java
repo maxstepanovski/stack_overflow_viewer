@@ -3,18 +3,16 @@ package com.example.mambayamba.stackoverflowviewer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.mambayamba.stackoverflowviewer.model.Question.Item;
 import com.example.mambayamba.stackoverflowviewer.model.Question.JsonQuestionResponse;
-import com.example.mambayamba.stackoverflowviewer.presenters.SearchFragmentPresenter;
+import com.example.mambayamba.stackoverflowviewer.presenters.DefaultFragmentPresenter;
 import com.example.mambayamba.stackoverflowviewer.rest.DefaultQuestionObserver;
 import com.example.mambayamba.stackoverflowviewer.screen.DownloadDialog;
 import com.example.mambayamba.stackoverflowviewer.screen.adapters.SearchQuestionAdapter;
@@ -24,7 +22,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import me.tatarka.rxloader.RxLoader;
 import me.tatarka.rxloader.RxLoaderManager;
 import me.tatarka.rxloader.RxLoaderManagerCompat;
@@ -33,9 +30,9 @@ import me.tatarka.rxloader.RxLoaderManagerCompat;
 /**
  * Created by mambayamba on 13.11.2016.
  */
-public class SearchFragment extends Fragment implements SearchFragmentView{
+public class DefaultFragment extends Fragment implements SearchFragmentView{
     private DownloadDialog downloadDialog;
-    private SearchFragmentPresenter presenter;
+    private DefaultFragmentPresenter presenter;
     private SearchQuestionAdapter adapter;
     private RxLoaderManager loaderManager;
     private RxLoader<JsonQuestionResponse> rxLoader;
@@ -48,11 +45,11 @@ public class SearchFragment extends Fragment implements SearchFragmentView{
         ButterKnife.bind(this, view);
 
         downloadDialog = new DownloadDialog(getActivity());
-        presenter = new SearchFragmentPresenter(this);
+        presenter = new DefaultFragmentPresenter(this);
 
         loaderManager = RxLoaderManagerCompat.get(this);
         rxLoader = loaderManager.create(
-                presenter.initializeDefaultQuestions(),
+                presenter.initializeFeaturedQuestions(),
                 new DefaultQuestionObserver(presenter)
         ).start();
 

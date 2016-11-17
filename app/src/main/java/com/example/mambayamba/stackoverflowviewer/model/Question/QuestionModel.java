@@ -27,6 +27,13 @@ public class QuestionModel {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
+
+    public Observable<JsonQuestionResponse> getFeaturedQuestions(){
+        return RestFactory.getRestFactory()
+                .loadFeaturedQuestions()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
 }
 
 

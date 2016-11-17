@@ -13,12 +13,24 @@ import butterknife.ButterKnife;
  * Created by mambayamba on 16.11.2016.
  */
 public class SearchQuestionHolder extends RecyclerView.ViewHolder {
-//    @BindView(R.id.holder_title)TextView holderTitle;
-    public TextView holderTitle;
+    public TextView questionTitle;
+    public TextView votesCount;
+    public TextView answersCount;
+    public TextView viewsCount;
+    public TextView userName;
+    public TextView tagOne;
+    public TextView tagTwo;
+    public TextView tagThree;
 
     public SearchQuestionHolder(View view) {
         super(view);
-//        ButterKnife.bind(this, view);
-        holderTitle = (TextView)view.findViewById(R.id.holder_title);
+        questionTitle = (TextView)view.findViewById(R.id.question_title);
+        votesCount = (TextView)view.findViewById(R.id.votes_count);
+        answersCount = (TextView)view.findViewById(R.id.answers_count);
+        viewsCount = (TextView)view.findViewById(R.id.views_count);
+        userName = (TextView)view.findViewById(R.id.last_activity_user_name);
+        tagOne = (TextView)view.findViewById(R.id.tag_one);
+        tagTwo = (TextView)view.findViewById(R.id.tag_two);
+        tagThree = (TextView)view.findViewById(R.id.tag_three);
     }
 }
