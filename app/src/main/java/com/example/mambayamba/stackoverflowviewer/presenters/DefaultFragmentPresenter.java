@@ -26,6 +26,14 @@ public class DefaultFragmentPresenter implements QuestionModelInterface {
         return questionModel.getDefaultQuestions();
     }
 
+    public Observable<JsonQuestionResponse> initializeHotQuestions(){
+        return questionModel.getHotQuestions();
+    }
+
+    public Observable<JsonQuestionResponse> initializeWeekQuestions() {
+        return questionModel.getWeekQuestions();
+    }
+
     @Override
     public void passShowLoading() {
         viewElement.showLoading();
@@ -46,4 +54,5 @@ public class DefaultFragmentPresenter implements QuestionModelInterface {
     public void passShowList(List<Item> questions) {
         viewElement.showList(questions);
     }
+
 }

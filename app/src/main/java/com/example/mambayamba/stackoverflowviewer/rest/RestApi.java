@@ -29,4 +29,7 @@ public interface RestApi {
 
     @GET("/2.2/questions?pagesize=50&order=desc&sort=hot&site=stackoverflow")
     Observable<JsonQuestionResponse> loadHotQuestions();
+
+    @GET("/2.2/questions?pagesize=50&order=desc&sort=week&site=stackoverflow")
+    Observable<JsonQuestionResponse> loadWeekQuestions();
 }

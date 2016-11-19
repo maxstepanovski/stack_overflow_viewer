@@ -1,5 +1,6 @@
 package com.example.mambayamba.stackoverflowviewer.screen.adapters;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +19,9 @@ import java.util.List;
 public class DefaultQuestionAdapter extends RecyclerView.Adapter<DefaultQuestionHolder>{
     private static final String TAG = "happyDefaultAdapter";
     private List<Item> questions;
-    private DefaultFragment fragment;
+    private Fragment fragment;
 
-    public DefaultQuestionAdapter(List<Item> questions, DefaultFragment fragment) {
+    public DefaultQuestionAdapter(List<Item> questions, Fragment fragment) {
         this.questions = questions;
         this.fragment = fragment;
     }

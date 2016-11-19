@@ -28,9 +28,9 @@ public class MainPagerAdapter extends FragmentPagerAdapter{
             case 1:
                 return new FeaturedFragment();
             case 2:
-                return new DefaultFragment();
+                return new HotFragment();
             case 3:
-                return new DefaultFragment();
+                return new WeekFragment();
             default:
                 return new DefaultFragment();
         }
