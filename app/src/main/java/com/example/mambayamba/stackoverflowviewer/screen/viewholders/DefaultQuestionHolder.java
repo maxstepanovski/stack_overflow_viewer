@@ -6,13 +6,10 @@ import android.widget.TextView;
 
 import com.example.mambayamba.stackoverflowviewer.R;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 /**
  * Created by mambayamba on 16.11.2016.
  */
-public class SearchQuestionHolder extends RecyclerView.ViewHolder {
+public class DefaultQuestionHolder extends RecyclerView.ViewHolder {
     public TextView questionTitle;
     public TextView votesCount;
     public TextView answersCount;
@@ -22,7 +19,7 @@ public class SearchQuestionHolder extends RecyclerView.ViewHolder {
     public TextView tagTwo;
     public TextView tagThree;
 
-    public SearchQuestionHolder(View view) {
+    public DefaultQuestionHolder(View view) {
         super(view);
         questionTitle = (TextView)view.findViewById(R.id.question_title);
         votesCount = (TextView)view.findViewById(R.id.votes_count);
@@ -31,6 +28,6 @@ public class SearchQuestionHolder extends RecyclerView.ViewHolder {
         userName = (TextView)view.findViewById(R.id.last_activity_user_name);
         tagOne = (TextView)view.findViewById(R.id.tag_one);
         tagTwo = (TextView)view.findViewById(R.id.tag_two);
-        tagThree = (TextView)view.findViewById(R.id.tag_three);
+//        tagThree = (TextView)view.findViewById(R.id.tag_three);
     }
 }

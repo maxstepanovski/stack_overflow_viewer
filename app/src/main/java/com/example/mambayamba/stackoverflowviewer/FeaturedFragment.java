@@ -10,13 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.mambayamba.stackoverflowviewer.model.question.Item;
-import com.example.mambayamba.stackoverflowviewer.model.question.JsonQuestionResponse;
-import com.example.mambayamba.stackoverflowviewer.presenters.DefaultFragmentPresenter;
-import com.example.mambayamba.stackoverflowviewer.rest.DefaultQuestionObserver;
+import com.example.mambayamba.stackoverflowviewer.rest.FeaturedQuestionObserver;
+import com.example.mambayamba.stackoverflowviewer.screen.adapters.FeaturedQuestionAdapter;
+import com.example.mambayamba.stackoverflowviewer.model.question.featured.Item;
+import com.example.mambayamba.stackoverflowviewer.model.question.featured.JsonFeaturedResponse;
+import com.example.mambayamba.stackoverflowviewer.presenters.FeaturedFragmentPresenter;
 import com.example.mambayamba.stackoverflowviewer.screen.DownloadDialog;
-import com.example.mambayamba.stackoverflowviewer.screen.adapters.DefaultQuestionAdapter;
-import com.example.mambayamba.stackoverflowviewer.viewinterface.DefaultFragmentView;
+import com.example.mambayamba.stackoverflowviewer.viewinterface.FeaturedFragmentView;
 
 import java.util.List;
 
@@ -26,16 +26,15 @@ import me.tatarka.rxloader.RxLoader;
 import me.tatarka.rxloader.RxLoaderManager;
 import me.tatarka.rxloader.RxLoaderManagerCompat;
 
-
 /**
- * Created by mambayamba on 13.11.2016.
+ * Created by mambayamba on 19.11.2016.
  */
-public class DefaultFragment extends Fragment implements DefaultFragmentView {
+public class FeaturedFragment extends Fragment implements FeaturedFragmentView{
     private DownloadDialog downloadDialog;
-    private DefaultFragmentPresenter presenter;
-    private DefaultQuestionAdapter adapter;
+    private FeaturedFragmentPresenter presenter;
+    private FeaturedQuestionAdapter adapter;
     private RxLoaderManager loaderManager;
-    private RxLoader<JsonQuestionResponse> rxLoader;
+    private RxLoader<JsonFeaturedResponse> rxLoader;
     @BindView(R.id.default_recycler_view)RecyclerView recyclerView;
 
     @Nullable
@@ -45,16 +44,17 @@ public class DefaultFragment extends Fragment implements DefaultFragmentView {
         ButterKnife.bind(this, view);
 
         downloadDialog = new DownloadDialog(getActivity());
-        presenter = new DefaultFragmentPresenter(this);
+        presenter = new FeaturedFragmentPresenter(this);
 
         loaderManager = RxLoaderManagerCompat.get(this);
         rxLoader = loaderManager.create(
-                presenter.initializeDefaultQuestions(),
-                new DefaultQuestionObserver(presenter)
+                presenter.initializeFeaturedQuestions(),
+                new FeaturedQuestionObserver(presenter)
         ).start();
 
         return view;
     }
+
 
     @Override
     public void showLoading() {
@@ -76,8 +76,7 @@ public class DefaultFragment extends Fragment implements DefaultFragmentView {
     @Override
     public void showList(List<Item> questions) {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        adapter = new DefaultQuestionAdapter(questions, this);
+        adapter = new FeaturedQuestionAdapter(questions, this);
         recyclerView.setAdapter(adapter);
     }
-
 }

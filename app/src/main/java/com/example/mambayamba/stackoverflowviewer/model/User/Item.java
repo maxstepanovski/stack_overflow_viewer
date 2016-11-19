@@ -1,4 +1,4 @@
-package com.example.mambayamba.stackoverflowviewer.model.User;
+package com.example.mambayamba.stackoverflowviewer.model.user;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

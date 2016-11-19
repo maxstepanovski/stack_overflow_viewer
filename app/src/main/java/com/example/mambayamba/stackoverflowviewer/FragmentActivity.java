@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class FragmentActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     @BindView(R.id.tab_layout)TabLayout tabLayout;
     @BindView(R.id.view_pager)ViewPager viewPager;
 

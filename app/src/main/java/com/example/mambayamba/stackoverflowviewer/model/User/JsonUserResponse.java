@@ -1,4 +1,4 @@
-package com.example.mambayamba.stackoverflowviewer.model.User;
+package com.example.mambayamba.stackoverflowviewer.model.user;
 
 import java.util.List;
 

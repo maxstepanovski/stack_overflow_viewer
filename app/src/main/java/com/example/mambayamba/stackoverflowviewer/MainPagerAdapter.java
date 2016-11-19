@@ -8,6 +8,12 @@ import android.support.v4.app.FragmentPagerAdapter;
  * Created by mambayamba on 13.11.2016.
  */
 public class MainPagerAdapter extends FragmentPagerAdapter{
+    String[] titles = {
+            "Relevant",
+            "Featured",
+            "Hottest",
+            "Week"
+    };
 
 
     public MainPagerAdapter(FragmentManager fm) {
@@ -20,7 +26,7 @@ public class MainPagerAdapter extends FragmentPagerAdapter{
             case 0:
                 return new DefaultFragment();
             case 1:
-                return new DefaultFragment();
+                return new FeaturedFragment();
             case 2:
                 return new DefaultFragment();
             case 3:
@@ -37,6 +43,6 @@ public class MainPagerAdapter extends FragmentPagerAdapter{
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return String.valueOf(position);
+        return titles[position];
     }
 }

@@ -1,12 +1,10 @@
 package com.example.mambayamba.stackoverflowviewer.presenters;
 
-import android.support.v4.widget.SwipeRefreshLayout;
-
-import com.example.mambayamba.stackoverflowviewer.model.Question.Item;
-import com.example.mambayamba.stackoverflowviewer.model.Question.JsonQuestionResponse;
-import com.example.mambayamba.stackoverflowviewer.model.Question.QuestionModel;
+import com.example.mambayamba.stackoverflowviewer.model.question.Item;
+import com.example.mambayamba.stackoverflowviewer.model.question.JsonQuestionResponse;
+import com.example.mambayamba.stackoverflowviewer.model.question.QuestionModel;
 import com.example.mambayamba.stackoverflowviewer.presenters.presenterinterface.QuestionModelInterface;
-import com.example.mambayamba.stackoverflowviewer.viewinterface.SearchFragmentView;
+import com.example.mambayamba.stackoverflowviewer.viewinterface.DefaultFragmentView;
 
 import java.util.List;
 
@@ -16,20 +14,16 @@ import rx.Observable;
  * Created by mambayamba on 14.11.2016.
  */
 public class DefaultFragmentPresenter implements QuestionModelInterface {
-    private SearchFragmentView viewElement;
+    private DefaultFragmentView viewElement;
     private QuestionModel questionModel;
 
-    public DefaultFragmentPresenter(SearchFragmentView viewElement){
+    public DefaultFragmentPresenter(DefaultFragmentView viewElement){
         this.viewElement = viewElement;
         this.questionModel = new QuestionModel(this);
     }
 
     public Observable<JsonQuestionResponse> initializeDefaultQuestions(){
         return questionModel.getDefaultQuestions();
-    }
-
-    public Observable<JsonQuestionResponse> initializeFeaturedQuestions(){
-        return questionModel.getFeaturedQuestions();
     }
 
     @Override

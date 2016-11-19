@@ -1,9 +1,8 @@
-package com.example.mambayamba.stackoverflowviewer.model.question;
-
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+package com.example.mambayamba.stackoverflowviewer.model.question.featured;
 
 import javax.annotation.Generated;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 @Generated("org.jsonschema2pojo")
 public class Owner {
@@ -17,6 +16,9 @@ public class Owner {
     @SerializedName("user_type")
     @Expose
     private String userType;
+    @SerializedName("accept_rate")
+    @Expose
+    private Integer acceptRate;
     @SerializedName("profile_image")
     @Expose
     private String profileImage;
@@ -41,12 +43,14 @@ public class Owner {
      * @param userId
      * @param reputation
      * @param displayName
+     * @param acceptRate
      * @param userType
      */
-    public Owner(Integer reputation, Integer userId, String userType, String profileImage, String displayName, String link) {
+    public Owner(Integer reputation, Integer userId, String userType, Integer acceptRate, String profileImage, String displayName, String link) {
         this.reputation = reputation;
         this.userId = userId;
         this.userType = userType;
+        this.acceptRate = acceptRate;
         this.profileImage = profileImage;
         this.displayName = displayName;
         this.link = link;
@@ -109,6 +113,24 @@ public class Owner {
     /**
      *
      * @return
+     * The acceptRate
+     */
+    public Integer getAcceptRate() {
+        return acceptRate;
+    }
+
+    /**
+     *
+     * @param acceptRate
+     * The accept_rate
+     */
+    public void setAcceptRate(Integer acceptRate) {
+        this.acceptRate = acceptRate;
+    }
+
+    /**
+     *
+     * @return
      * The profileImage
      */
     public String getProfileImage() {
@@ -161,4 +183,3 @@ public class Owner {
     }
 
 }
-

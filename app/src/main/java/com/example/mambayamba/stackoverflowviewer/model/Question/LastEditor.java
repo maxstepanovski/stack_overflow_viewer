@@ -1,4 +1,4 @@
-package com.example.mambayamba.stackoverflowviewer.model.Question;
+package com.example.mambayamba.stackoverflowviewer.model.question;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;

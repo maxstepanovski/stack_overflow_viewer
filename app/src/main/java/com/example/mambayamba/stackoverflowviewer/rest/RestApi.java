@@ -1,8 +1,8 @@
 package com.example.mambayamba.stackoverflowviewer.rest;
-import com.example.mambayamba.stackoverflowviewer.model.Question.JsonQuestionResponse;
-import com.example.mambayamba.stackoverflowviewer.model.User.JsonUserResponse;
+import com.example.mambayamba.stackoverflowviewer.model.question.JsonQuestionResponse;
+import com.example.mambayamba.stackoverflowviewer.model.question.featured.JsonFeaturedResponse;
+import com.example.mambayamba.stackoverflowviewer.model.user.JsonUserResponse;
 
-import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -15,7 +15,7 @@ public interface RestApi {
     @GET("/2.2/users?pagesize=3&order=desc&sort=reputation&site=stackoverflow")
     Observable<JsonUserResponse> loadDefaultUsers();
 
-    @GET("/2.2/search?order=desc&sort=activity&tagged=android&site=stackoverflow")
+    @GET("/2.2/questions?pagesize=50&order=desc&sort=activity&site=stackoverflow")
     Observable<JsonQuestionResponse> loadDefaultQuestions();
 
     @GET("/2.2/search?sort=activity&order=desc &site=stackoverflow")
@@ -24,6 +24,9 @@ public interface RestApi {
     @GET("/2.2/users/{ids}?order=desc&sort=name&site=stackoverflow")
     Observable<JsonUserResponse> loadUser(@Path("ids") String userId);
 
-    @GET("/2.2/questions?pagesize=50&order=desc&sort=activity&site=stackoverflow&filter=!LaSRLvLaUqjy_0jt2_gY-I")
-    Observable<JsonQuestionResponse> loadFeaturedQuestions();
+    @GET("/2.2/questions/featured?pagesize=50&order=desc&sort=activity&site=stackoverflow&filter=!3yXvh452nVOU1lo8U")
+    Observable<JsonFeaturedResponse> loadFeaturedQuestions();
+
+    @GET("/2.2/questions?pagesize=50&order=desc&sort=hot&site=stackoverflow")
+    Observable<JsonQuestionResponse> loadHotQuestions();
 }

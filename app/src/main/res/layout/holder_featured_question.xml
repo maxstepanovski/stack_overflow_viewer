@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_margin="@dimen/some_margin">
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_margin="@dimen/some_double_margin"
         android:layout_gravity="center"
-        android:id="@+id/question_title"
+        android:id="@+id/featured_question_title"
+        android:textColor="@color/textColor"
         tools:text="Android - How to use camera getSupportedPreviewSizes() for portrait orientation"/>
 
     <LinearLayout
@@ -17,14 +20,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="@dimen/some_margin"
-        android:id="@+id/linear_layout_votes"
-        android:layout_below="@+id/question_title"
-        android:layout_alignLeft="@+id/question_title">
+        android:id="@+id/featured_linear_layout_votes"
+        android:layout_below="@+id/featured_question_title"
+        android:layout_alignLeft="@+id/featured_question_title">
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_margin="@dimen/some_margin"
-            android:id="@+id/votes_count"
+            android:id="@+id/featured_votes_count"
             android:layout_gravity="center"
             tools:text="0"/>
         <TextView
@@ -39,14 +42,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="@dimen/some_margin"
-        android:id="@+id/linear_layout_answers"
-        android:layout_toRightOf="@+id/linear_layout_votes"
-        android:layout_below="@+id/question_title">
+        android:id="@+id/featured_linear_layout_answers"
+        android:layout_toRightOf="@+id/featured_linear_layout_votes"
+        android:layout_below="@+id/featured_question_title">
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_margin="@dimen/some_margin"
-            android:id="@+id/answers_count"
+            android:id="@+id/featured_answers_count"
             android:layout_gravity="center"
             tools:text="0"/>
         <TextView
@@ -61,15 +64,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="@dimen/some_margin"
-        android:id="@+id/linear_layout_views"
-        android:layout_toRightOf="@+id/linear_layout_answers"
-        android:layout_below="@+id/question_title">
+        android:id="@+id/featured_linear_layout_views"
+        android:layout_toRightOf="@+id/featured_linear_layout_answers"
+        android:layout_below="@+id/featured_question_title">
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_margin="@dimen/some_margin"
             android:layout_gravity="center"
-            android:id="@+id/views_count"
+            android:id="@+id/featured_views_count"
             tools:text="0"/>
         <TextView
             android:layout_height="wrap_content"
@@ -83,48 +86,54 @@
         android:layout_height="wrap_content"
         android:text="last activity: "
         android:layout_margin="@dimen/some_margin"
-        android:id="@+id/dummy_last_activity"
-        android:layout_below="@id/question_title"
-        android:layout_toRightOf="@+id/linear_layout_views"/>
+        android:id="@+id/featured_dummy_last_activity"
+        android:layout_below="@id/featured_question_title"
+        android:layout_toRightOf="@+id/featured_linear_layout_views"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="User Name"
         android:layout_margin="@dimen/some_margin"
-        android:id="@+id/last_activity_user_name"
-        android:layout_below="@id/question_title"
-        android:layout_toRightOf="@+id/dummy_last_activity"/>
+        android:id="@+id/featured_last_activity_user_name"
+        android:layout_below="@id/featured_question_title"
+        android:layout_toRightOf="@+id/featured_dummy_last_activity"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tag_one"
+        android:id="@+id/featured_tag_one"
         tools:text="tag one"
+        android:textColor="@color/textColor"
         android:layout_margin="@dimen/some_margin"
-        android:layout_below="@+id/dummy_last_activity"
-        android:layout_toRightOf="@id/linear_layout_views"
+        android:layout_below="@+id/featured_dummy_last_activity"
+        android:layout_toRightOf="@id/featured_linear_layout_views"
+        android:padding="1dp"
         android:background="@color/tagBackground"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tag_two"
+        android:id="@+id/featured_tag_two"
         tools:text="tag two"
+        android:textColor="@color/textColor"
         android:layout_margin="@dimen/some_margin"
-        android:layout_below="@+id/dummy_last_activity"
-        android:layout_toRightOf="@+id/tag_one"
+        android:layout_below="@+id/featured_dummy_last_activity"
+        android:layout_toRightOf="@+id/featured_tag_one"
+        android:padding="1dp"
         android:background="@color/tagBackground"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tag_three"
-        tools:text="tag three"
-        android:layout_margin="@dimen/some_margin"
-        android:layout_below="@+id/dummy_last_activity"
-        android:layout_toRightOf="@id/tag_two"
-        android:background="@color/tagBackground"/>
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:id="@+id/featured_tag_three"-->
+    <!--tools:text="tag three"-->
+    <!--android:textColor="@color/textColor"-->
+    <!--android:layout_margin="@dimen/some_margin"-->
+    <!--android:layout_below="@+id/featured_dummy_last_activity"-->
+    <!--android:layout_toRightOf="@id/featured_tag_two"-->
+    <!--android:padding="1dp"-->
+    <!--android:background="@color/tagBackground"/>-->
 
 
 </RelativeLayout>

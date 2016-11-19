@@ -1,5 +1,6 @@
-package com.example.mambayamba.stackoverflowviewer.model.Question;
+package com.example.mambayamba.stackoverflowviewer.model.question;
 
+import com.example.mambayamba.stackoverflowviewer.model.question.featured.JsonFeaturedResponse;
 import com.example.mambayamba.stackoverflowviewer.presenters.presenterinterface.QuestionModelInterface;
 import com.example.mambayamba.stackoverflowviewer.rest.RestFactory;
 import java.util.List;
@@ -28,9 +29,9 @@ public class QuestionModel {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<JsonQuestionResponse> getFeaturedQuestions(){
+    public Observable<JsonQuestionResponse> getHotQuestions(){
         return RestFactory.getRestFactory()
-                .loadFeaturedQuestions()
+                .loadHotQuestions()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

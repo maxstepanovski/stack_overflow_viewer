@@ -2,8 +2,8 @@ package com.example.mambayamba.stackoverflowviewer.rest;
 
 import android.util.Log;
 
-import com.example.mambayamba.stackoverflowviewer.model.Question.Item;
-import com.example.mambayamba.stackoverflowviewer.model.Question.JsonQuestionResponse;
+import com.example.mambayamba.stackoverflowviewer.model.question.Item;
+import com.example.mambayamba.stackoverflowviewer.model.question.JsonQuestionResponse;
 import com.example.mambayamba.stackoverflowviewer.presenters.DefaultFragmentPresenter;
 
 import java.util.List;
@@ -29,7 +29,6 @@ public class DefaultQuestionObserver extends RxLoaderObserver<JsonQuestionRespon
     public void onNext(JsonQuestionResponse value) {
         List<Item> questions = value.getItems();
         for(Item item:questions)
-            Log.d("happy", item.getTitle()+" "+item.getAnswerCount()+" "+item.getTags().toString()+" "+item.getViewCount()+"\n");
         presenter.passShowList(questions);
     }
 
