@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ import me.tatarka.rxloader.RxLoaderManagerCompat;
  * Created by mambayamba on 19.11.2016.
  */
 public class HotFragment extends Fragment implements DefaultFragmentView {
+    public static final String TAG = "happyHotFragment";
     private DownloadDialog downloadDialog;
     private DefaultFragmentPresenter presenter;
     private DefaultQuestionAdapter adapter;
@@ -77,5 +79,11 @@ public class HotFragment extends Fragment implements DefaultFragmentView {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         adapter = new DefaultQuestionAdapter(questions, this);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void refresh() {
+        Log.d(TAG, "Hot");
+        rxLoader.restart();
     }
 }

@@ -7,9 +7,10 @@ import java.util.List;
 /**
  * Created by mambayamba on 14.11.2016.
  */
-public interface DefaultFragmentView {
+public interface DefaultFragmentView extends FragmentView {
     public void showLoading();
     public void hideLoading();
     public void showError();
     public void showList(List<Item> questions);
+    public void refresh();
 }

@@ -5,4 +5,8 @@
     <string name="progress_dialog_title">Loading...</string>
     <string name="fetching_questions">Fetching questions!</string>
     <string name="menu_refresh">refresh</string>
+    <string name="hot_fragment">2</string>
+    <string name="default_fragment">0</string>
+    <string name="featured_fragment">1</string>
+    <string name="week_fragment">3</string>
 </resources>

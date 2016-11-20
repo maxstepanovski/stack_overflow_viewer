@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.example.mambayamba.stackoverflowviewer.rest.DefaultQuestionObserver;
 import com.example.mambayamba.stackoverflowviewer.screen.DownloadDialog;
 import com.example.mambayamba.stackoverflowviewer.screen.adapters.DefaultQuestionAdapter;
 import com.example.mambayamba.stackoverflowviewer.viewinterface.DefaultFragmentView;
+import com.example.mambayamba.stackoverflowviewer.viewinterface.OnQueryPassed;
 
 import java.util.List;
 
@@ -30,7 +32,8 @@ import me.tatarka.rxloader.RxLoaderManagerCompat;
 /**
  * Created by mambayamba on 13.11.2016.
  */
-public class DefaultFragment extends Fragment implements DefaultFragmentView {
+public class DefaultFragment extends Fragment implements DefaultFragmentView, OnQueryPassed {
+    private static final String TAG = "happyDefaultFragment";
     private DownloadDialog downloadDialog;
     private DefaultFragmentPresenter presenter;
     private DefaultQuestionAdapter adapter;
@@ -80,4 +83,14 @@ public class DefaultFragment extends Fragment implements DefaultFragmentView {
         recyclerView.setAdapter(adapter);
     }
 
+    @Override
+    public void refresh() {
+        Log.d(TAG, "default");
+        rxLoader.restart();
+    }
+
+    @Override
+    public void onQueryPassed(String query) {
+
+    }
 }

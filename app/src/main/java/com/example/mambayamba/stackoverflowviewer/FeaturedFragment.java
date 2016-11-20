@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ import me.tatarka.rxloader.RxLoaderManagerCompat;
  * Created by mambayamba on 19.11.2016.
  */
 public class FeaturedFragment extends Fragment implements FeaturedFragmentView{
+    private static final String TAG = "happyFeaturedFragment";
     private DownloadDialog downloadDialog;
     private FeaturedFragmentPresenter presenter;
     private FeaturedQuestionAdapter adapter;
@@ -78,5 +80,11 @@ public class FeaturedFragment extends Fragment implements FeaturedFragmentView{
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         adapter = new FeaturedQuestionAdapter(questions, this);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void refresh() {
+        Log.d(TAG, "featured");
+        rxLoader.restart();
     }
 }
