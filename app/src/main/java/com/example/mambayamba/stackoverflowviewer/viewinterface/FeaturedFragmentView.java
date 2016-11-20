@@ -8,9 +8,5 @@ import java.util.List;
  * Created by mambayamba on 19.11.2016.
  */
 public interface FeaturedFragmentView extends FragmentView {
-    public void showLoading();
-    public void hideLoading();
-    public void showError();
     public void showList(List<Item> questions);
-    public void refresh();
 }

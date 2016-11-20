@@ -1,6 +1,5 @@
-package com.example.mambayamba.stackoverflowviewer.model.question;
+package com.example.mambayamba.stackoverflowviewer.model.question.average;
 
-import com.example.mambayamba.stackoverflowviewer.model.question.featured.JsonFeaturedResponse;
 import com.example.mambayamba.stackoverflowviewer.presenters.presenterinterface.QuestionModelInterface;
 import com.example.mambayamba.stackoverflowviewer.rest.RestFactory;
 import java.util.List;

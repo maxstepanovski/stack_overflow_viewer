@@ -1,9 +1,7 @@
 package com.example.mambayamba.stackoverflowviewer.rest;
 
-import android.util.Log;
-
-import com.example.mambayamba.stackoverflowviewer.model.question.Item;
-import com.example.mambayamba.stackoverflowviewer.model.question.JsonQuestionResponse;
+import com.example.mambayamba.stackoverflowviewer.model.question.average.Item;
+import com.example.mambayamba.stackoverflowviewer.model.question.average.JsonQuestionResponse;
 import com.example.mambayamba.stackoverflowviewer.presenters.DefaultFragmentPresenter;
 
 import java.util.List;

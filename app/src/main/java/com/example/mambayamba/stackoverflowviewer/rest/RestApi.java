@@ -1,5 +1,6 @@
 package com.example.mambayamba.stackoverflowviewer.rest;
-import com.example.mambayamba.stackoverflowviewer.model.question.JsonQuestionResponse;
+import com.example.mambayamba.stackoverflowviewer.model.question.average.JsonQuestionResponse;
+import com.example.mambayamba.stackoverflowviewer.model.question.excerpt.JsonExcerptResponse;
 import com.example.mambayamba.stackoverflowviewer.model.question.featured.JsonFeaturedResponse;
 import com.example.mambayamba.stackoverflowviewer.model.user.JsonUserResponse;
 
@@ -32,4 +33,7 @@ public interface RestApi {
 
     @GET("/2.2/questions?pagesize=50&order=desc&sort=week&site=stackoverflow")
     Observable<JsonQuestionResponse> loadWeekQuestions();
+
+    @GET("/2.2/search/excerpts?pagesize=20&order=desc&sort=activity&site=stackoverflow&filter=!-*f(6qCVg2rb")
+    Observable<JsonExcerptResponse> searchExcerpts(@Query("q")String query);
 }

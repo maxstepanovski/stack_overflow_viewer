@@ -7,9 +7,6 @@ import java.util.List;
 /**
  * Created by mambayamba on 19.11.2016.
  */
-public interface FeaturedModelInterface {
-    public void passShowLoading();
-    public void passHideLoading();
-    public void passShowError();
+public interface FeaturedModelInterface extends ModelInterface{
     public void passShowList(List<Item> questions);
 }

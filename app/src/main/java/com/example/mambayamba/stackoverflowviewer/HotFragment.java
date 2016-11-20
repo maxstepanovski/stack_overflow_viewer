@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.mambayamba.stackoverflowviewer.model.question.Item;
-import com.example.mambayamba.stackoverflowviewer.model.question.JsonQuestionResponse;
+import com.example.mambayamba.stackoverflowviewer.model.question.average.Item;
+import com.example.mambayamba.stackoverflowviewer.model.question.average.JsonQuestionResponse;
 import com.example.mambayamba.stackoverflowviewer.presenters.DefaultFragmentPresenter;
 import com.example.mambayamba.stackoverflowviewer.rest.DefaultQuestionObserver;
 import com.example.mambayamba.stackoverflowviewer.screen.DownloadDialog;

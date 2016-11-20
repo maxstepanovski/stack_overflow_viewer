@@ -1,8 +1,8 @@
 package com.example.mambayamba.stackoverflowviewer.presenters;
 
-import com.example.mambayamba.stackoverflowviewer.model.question.Item;
-import com.example.mambayamba.stackoverflowviewer.model.question.JsonQuestionResponse;
-import com.example.mambayamba.stackoverflowviewer.model.question.QuestionModel;
+import com.example.mambayamba.stackoverflowviewer.model.question.average.Item;
+import com.example.mambayamba.stackoverflowviewer.model.question.average.JsonQuestionResponse;
+import com.example.mambayamba.stackoverflowviewer.model.question.average.QuestionModel;
 import com.example.mambayamba.stackoverflowviewer.presenters.presenterinterface.QuestionModelInterface;
 import com.example.mambayamba.stackoverflowviewer.viewinterface.DefaultFragmentView;
 

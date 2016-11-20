@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import com.example.mambayamba.stackoverflowviewer.viewinterface.DefaultFragmentView;
 import com.example.mambayamba.stackoverflowviewer.viewinterface.FeaturedFragmentView;
 import com.example.mambayamba.stackoverflowviewer.viewinterface.FragmentView;
+import com.example.mambayamba.stackoverflowviewer.viewinterface.OnQueryPassed;
 
 import java.util.List;
 
@@ -22,6 +23,8 @@ import butterknife.ButterKnife;
 
 public class FragmentActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     public static final int DEFAULT_FRAGMENT = 0;
+    public static final String COLON = ":";
+    private SearchView searchView;
     private static final String TAG = "happyFragmentActivity";
     public static final String ANDROID_SWITCHER = "android:switcher:";
     @BindView(R.id.tab_layout)TabLayout tabLayout;
@@ -41,7 +44,7 @@ public class FragmentActivity extends AppCompatActivity implements SearchView.On
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search, menu);
         MenuItem menuItem = menu.findItem(R.id.search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+        searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
         searchView.setOnQueryTextListener(this);
         return true;
     }
@@ -52,8 +55,9 @@ public class FragmentActivity extends AppCompatActivity implements SearchView.On
             case R.id.menu_refresh:{
                 int itemNumber = viewPager.getCurrentItem();
                 FragmentView currentFragment = (FragmentView)getSupportFragmentManager()
-                        .findFragmentByTag(ANDROID_SWITCHER + R.id.view_pager + ":" + itemNumber);
+                        .findFragmentByTag(ANDROID_SWITCHER + R.id.view_pager + COLON + itemNumber);
                 currentFragment.refresh();
+                break;
             }
             default:
                 break;
@@ -64,7 +68,10 @@ public class FragmentActivity extends AppCompatActivity implements SearchView.On
     @Override
     public boolean onQueryTextSubmit(String query) {
         viewPager.setCurrentItem(DEFAULT_FRAGMENT);
-
+        OnQueryPassed fragment = (OnQueryPassed) getSupportFragmentManager()
+                .findFragmentByTag(ANDROID_SWITCHER + R.id.view_pager + COLON + DEFAULT_FRAGMENT);
+        fragment.onQueryPassed(query);
+        searchView.setIconified(true);
         return false;
     }
 
