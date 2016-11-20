@@ -1,7 +1,9 @@
 package com.example.mambayamba.stackoverflowviewer;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -22,11 +24,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class FragmentActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
-    public static final int DEFAULT_FRAGMENT = 0;
     public static final String COLON = ":";
-    private SearchView searchView;
+    public static final String QUERY = "query";
     private static final String TAG = "happyFragmentActivity";
     public static final String ANDROID_SWITCHER = "android:switcher:";
+    private SearchView searchView;
     @BindView(R.id.tab_layout)TabLayout tabLayout;
     @BindView(R.id.view_pager)ViewPager viewPager;
 
@@ -67,11 +69,9 @@ public class FragmentActivity extends AppCompatActivity implements SearchView.On
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        viewPager.setCurrentItem(DEFAULT_FRAGMENT);
-        OnQueryPassed fragment = (OnQueryPassed) getSupportFragmentManager()
-                .findFragmentByTag(ANDROID_SWITCHER + R.id.view_pager + COLON + DEFAULT_FRAGMENT);
-        fragment.onQueryPassed(query);
-        searchView.setIconified(true);
+        Intent excerptActivityIntent = new Intent(this, ExcerptActivity.class);
+        excerptActivityIntent.putExtra(QUERY, query);
+        startActivity(excerptActivityIntent);
         return false;
     }
 

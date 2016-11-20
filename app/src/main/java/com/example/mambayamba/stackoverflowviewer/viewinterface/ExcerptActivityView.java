@@ -7,6 +7,9 @@ import java.util.List;
 /**
  * Created by mambayamba on 20.11.2016.
  */
-public interface ExcerptFragmentView extends FragmentView {
+public interface ExcerptActivityView{
+    public void showLoading();
+    public void hideLoading();
+    public void showError();
     public void showList(List<Item> questions);
 }

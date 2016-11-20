@@ -9,4 +9,5 @@
     <string name="default_fragment">0</string>
     <string name="featured_fragment">1</string>
     <string name="week_fragment">3</string>
+    <string name="excerpt">excerpt</string>
 </resources>

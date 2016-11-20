@@ -4,7 +4,7 @@ import com.example.mambayamba.stackoverflowviewer.model.question.excerpt.Excerpt
 import com.example.mambayamba.stackoverflowviewer.model.question.excerpt.Item;
 import com.example.mambayamba.stackoverflowviewer.model.question.excerpt.JsonExcerptResponse;
 import com.example.mambayamba.stackoverflowviewer.presenters.presenterinterface.ExcerptModelInterface;
-import com.example.mambayamba.stackoverflowviewer.viewinterface.ExcerptFragmentView;
+import com.example.mambayamba.stackoverflowviewer.viewinterface.ExcerptActivityView;
 
 import java.util.List;
 
@@ -13,12 +13,12 @@ import rx.Observable;
 /**
  * Created by mambayamba on 20.11.2016.
  */
-public class ExcerptFragmentPresenter implements ExcerptModelInterface {
-    private ExcerptFragmentView viewElement;
+public class ExcerptActivityPresenter implements ExcerptModelInterface {
+    private ExcerptActivityView viewElement;
     private ExcerptModel questionModel;
     private String query;
 
-    public ExcerptFragmentPresenter(ExcerptFragmentView viewElement) {
+    public ExcerptActivityPresenter(ExcerptActivityView viewElement) {
         this.viewElement = viewElement;
     }
 

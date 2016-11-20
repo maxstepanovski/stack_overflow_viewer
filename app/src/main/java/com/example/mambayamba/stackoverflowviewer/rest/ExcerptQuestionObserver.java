@@ -1,8 +1,10 @@
 package com.example.mambayamba.stackoverflowviewer.rest;
 
+import android.util.Log;
+
 import com.example.mambayamba.stackoverflowviewer.model.question.excerpt.Item;
 import com.example.mambayamba.stackoverflowviewer.model.question.excerpt.JsonExcerptResponse;
-import com.example.mambayamba.stackoverflowviewer.presenters.ExcerptFragmentPresenter;
+import com.example.mambayamba.stackoverflowviewer.presenters.ExcerptActivityPresenter;
 
 import java.util.List;
 
@@ -12,9 +14,10 @@ import me.tatarka.rxloader.RxLoaderObserver;
  * Created by mambayamba on 20.11.2016.
  */
 public class ExcerptQuestionObserver extends RxLoaderObserver<JsonExcerptResponse> {
-    private ExcerptFragmentPresenter presenter;
+    private static final String TAG = "happyExcerptObserver";
+    private ExcerptActivityPresenter presenter;
 
-    public ExcerptQuestionObserver(ExcerptFragmentPresenter presenter) {
+    public ExcerptQuestionObserver(ExcerptActivityPresenter presenter) {
         this.presenter = presenter;
     }
 
@@ -26,6 +29,8 @@ public class ExcerptQuestionObserver extends RxLoaderObserver<JsonExcerptRespons
     @Override
     public void onNext(JsonExcerptResponse value) {
         List<Item> questions = value.getItems();
+//        for(Item item:questions)
+//            Log.d(TAG, item.getTitle().toString()+", "+item.getExcerpt().toString()+", "+item.getOwner().getDisplayName().toString());
         for(Item item:questions)
             presenter.passShowList(questions);
     }

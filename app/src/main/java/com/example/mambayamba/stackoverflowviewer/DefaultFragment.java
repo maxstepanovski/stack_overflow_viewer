@@ -32,7 +32,7 @@ import me.tatarka.rxloader.RxLoaderManagerCompat;
 /**
  * Created by mambayamba on 13.11.2016.
  */
-public class DefaultFragment extends Fragment implements DefaultFragmentView, OnQueryPassed {
+public class DefaultFragment extends Fragment implements DefaultFragmentView {
     private static final String TAG = "happyDefaultFragment";
     private DownloadDialog downloadDialog;
     private DefaultFragmentPresenter presenter;
@@ -87,10 +87,5 @@ public class DefaultFragment extends Fragment implements DefaultFragmentView, On
     public void refresh() {
         Log.d(TAG, "default");
         rxLoader.restart();
-    }
-
-    @Override
-    public void onQueryPassed(String query) {
-        Log.d(TAG, query);
     }
 }

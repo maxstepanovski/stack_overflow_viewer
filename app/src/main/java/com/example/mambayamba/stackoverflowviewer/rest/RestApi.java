@@ -34,6 +34,6 @@ public interface RestApi {
     @GET("/2.2/questions?pagesize=50&order=desc&sort=week&site=stackoverflow")
     Observable<JsonQuestionResponse> loadWeekQuestions();
 
-    @GET("/2.2/search/excerpts?pagesize=20&order=desc&sort=activity&site=stackoverflow&filter=!-*f(6qCVg2rb")
+    @GET("/2.2/search/excerpts?pagesize=50&order=desc&sort=activity&site=stackoverflow&filter=!-*f(6qCVg2rb")
     Observable<JsonExcerptResponse> searchExcerpts(@Query("q")String query);
 }
