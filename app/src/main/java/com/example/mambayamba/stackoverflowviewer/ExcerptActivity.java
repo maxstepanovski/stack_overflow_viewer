@@ -21,8 +21,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.tatarka.rxloader.RxLoader;
+import me.tatarka.rxloader.RxLoader1;
 import me.tatarka.rxloader.RxLoaderManager;
 import me.tatarka.rxloader.RxLoaderManagerCompat;
+import me.tatarka.rxloader.RxLoaderObserver;
+import rx.Observable;
+import rx.functions.Func1;
 
 /**
  * Created by mambayamba on 20.11.2016.
@@ -33,7 +37,7 @@ public class ExcerptActivity extends AppCompatActivity implements ExcerptActivit
     private ExcerptActivityPresenter presenter;
     private ExcerptQuestionAdapter adapter;
     private RxLoaderManager loaderManager;
-    private RxLoader<JsonExcerptResponse> rxLoader;
+    private RxLoader1<String, JsonExcerptResponse> rxLoader;
     private String query;
     private SearchView searchView;
     @BindView(R.id.excerpt_recycler_view)RecyclerView recyclerView;
@@ -49,10 +53,13 @@ public class ExcerptActivity extends AppCompatActivity implements ExcerptActivit
         downloadDialog = new DownloadDialog(this);
         presenter = new ExcerptActivityPresenter(this);
         loaderManager = RxLoaderManagerCompat.get(this);
-        rxLoader = loaderManager.create(
-                presenter.initializeExcerptQuestions(query),
-                new ExcerptQuestionObserver(presenter)
-        ).start();
+        rxLoader = loaderManager.create(new Func1<String, Observable<JsonExcerptResponse>>() {
+            @Override
+            public Observable<JsonExcerptResponse> call(String s) {
+                return presenter.initializeExcerptQuestions(s);
+            }
+        }, new ExcerptQuestionObserver(presenter) {
+        }).start(query);
     }
 
     @Override
@@ -68,7 +75,7 @@ public class ExcerptActivity extends AppCompatActivity implements ExcerptActivit
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.menu_refresh:{
-                rxLoader.restart();
+                rxLoader.restart(query);
                 break;
             }
             default:break;
@@ -103,7 +110,7 @@ public class ExcerptActivity extends AppCompatActivity implements ExcerptActivit
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        rxLoader.restart();
+        rxLoader.restart(query);
         searchView.setIconified(true);
         return false;
     }
