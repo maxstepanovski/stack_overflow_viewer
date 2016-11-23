@@ -1,8 +1,6 @@
-package com.example.mambayamba.stackoverflowviewer.model.question.average;
+package com.example.mambayamba.stackoverflowviewer.model.questionlist.average;
 
-import com.example.mambayamba.stackoverflowviewer.presenters.presenterinterface.QuestionModelInterface;
 import com.example.mambayamba.stackoverflowviewer.rest.RestFactory;
-import java.util.List;
 import lombok.Data;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -12,30 +10,26 @@ import rx.schedulers.Schedulers;
  * Created by mambayamba on 16.11.2016.
  */
 @Data
-public class QuestionModel {
-    public static final String TAG = "happyQuestionModel";
-    private List<Item> questions;
-    private QuestionModelInterface presenter;
+public class QuestionListModel {
+    private static final String TAG = "happyQuestionModel";
 
-    public QuestionModel(QuestionModelInterface presenter){
-        this.presenter = presenter;
-    }
+    public QuestionListModel(){}
 
-    public Observable<JsonQuestionResponse> getDefaultQuestions(){
+    public Observable<QuestionListResponse> getDefaultQuestions(){
         return RestFactory.getRestFactory()
                 .loadDefaultQuestions()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<JsonQuestionResponse> getHotQuestions(){
+    public Observable<QuestionListResponse> getHotQuestions(){
         return RestFactory.getRestFactory()
                 .loadHotQuestions()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Observable<JsonQuestionResponse> getWeekQuestions(){
+    public Observable<QuestionListResponse> getWeekQuestions(){
         return RestFactory.getRestFactory()
                 .loadWeekQuestions()
                 .subscribeOn(Schedulers.io())

@@ -1,5 +1,8 @@
-package com.example.mambayamba.stackoverflowviewer.model.question.featured;
+package com.example.mambayamba.stackoverflowviewer.model.questionpage;
 
+/**
+ * Created by mambayamba on 21.11.2016.
+ */
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
@@ -12,12 +15,24 @@ public class Item {
     @SerializedName("tags")
     @Expose
     private List<String> tags = new ArrayList<String>();
+    @SerializedName("answers")
+    @Expose
+    private List<Answer> answers = new ArrayList<Answer>();
     @SerializedName("owner")
     @Expose
     private Owner owner;
     @SerializedName("last_editor")
     @Expose
     private LastEditor lastEditor;
+    @SerializedName("can_close")
+    @Expose
+    private Boolean canClose;
+    @SerializedName("can_flag")
+    @Expose
+    private Boolean canFlag;
+    @SerializedName("reopen_vote_count")
+    @Expose
+    private Integer reopenVoteCount;
     @SerializedName("is_answered")
     @Expose
     private Boolean isAnswered;
@@ -33,12 +48,6 @@ public class Item {
     @SerializedName("up_vote_count")
     @Expose
     private Integer upVoteCount;
-    @SerializedName("bounty_amount")
-    @Expose
-    private Integer bountyAmount;
-    @SerializedName("bounty_closes_date")
-    @Expose
-    private Integer bountyClosesDate;
     @SerializedName("answer_count")
     @Expose
     private Integer answerCount;
@@ -57,15 +66,21 @@ public class Item {
     @SerializedName("question_id")
     @Expose
     private Integer questionId;
+    @SerializedName("share_link")
+    @Expose
+    private String shareLink;
+    @SerializedName("body_markdown")
+    @Expose
+    private String bodyMarkdown;
     @SerializedName("link")
     @Expose
     private String link;
     @SerializedName("title")
     @Expose
     private String title;
-    @SerializedName("accepted_answer_id")
+    @SerializedName("body")
     @Expose
-    private Integer acceptedAnswerId;
+    private String body;
 
     /**
      * No args constructor for use in serialization
@@ -77,45 +92,53 @@ public class Item {
     /**
      *
      * @param tags
-     * @param bountyClosesDate
+     * @param body
      * @param downVoteCount
      * @param questionId
-     * @param bountyAmount
      * @param link
      * @param lastActivityDate
+     * @param shareLink
      * @param score
+     * @param answers
      * @param lastEditor
      * @param lastEditDate
+     * @param reopenVoteCount
+     * @param bodyMarkdown
      * @param creationDate
+     * @param canFlag
      * @param upVoteCount
      * @param title
      * @param answerCount
      * @param favoriteCount
+     * @param canClose
      * @param isAnswered
      * @param owner
-     * @param acceptedAnswerId
      * @param viewCount
      */
-    public Item(List<String> tags, Owner owner, LastEditor lastEditor, Boolean isAnswered, Integer viewCount, Integer favoriteCount, Integer downVoteCount, Integer upVoteCount, Integer bountyAmount, Integer bountyClosesDate, Integer answerCount, Integer score, Integer lastActivityDate, Integer creationDate, Integer lastEditDate, Integer questionId, String link, String title, Integer acceptedAnswerId) {
+    public Item(List<String> tags, List<Answer> answers, Owner owner, LastEditor lastEditor, Boolean canClose, Boolean canFlag, Integer reopenVoteCount, Boolean isAnswered, Integer viewCount, Integer favoriteCount, Integer downVoteCount, Integer upVoteCount, Integer answerCount, Integer score, Integer lastActivityDate, Integer creationDate, Integer lastEditDate, Integer questionId, String shareLink, String bodyMarkdown, String link, String title, String body) {
         this.tags = tags;
+        this.answers = answers;
         this.owner = owner;
         this.lastEditor = lastEditor;
+        this.canClose = canClose;
+        this.canFlag = canFlag;
+        this.reopenVoteCount = reopenVoteCount;
         this.isAnswered = isAnswered;
         this.viewCount = viewCount;
         this.favoriteCount = favoriteCount;
         this.downVoteCount = downVoteCount;
         this.upVoteCount = upVoteCount;
-        this.bountyAmount = bountyAmount;
-        this.bountyClosesDate = bountyClosesDate;
         this.answerCount = answerCount;
         this.score = score;
         this.lastActivityDate = lastActivityDate;
         this.creationDate = creationDate;
         this.lastEditDate = lastEditDate;
         this.questionId = questionId;
+        this.shareLink = shareLink;
+        this.bodyMarkdown = bodyMarkdown;
         this.link = link;
         this.title = title;
-        this.acceptedAnswerId = acceptedAnswerId;
+        this.body = body;
     }
 
     /**
@@ -134,6 +157,24 @@ public class Item {
      */
     public void setTags(List<String> tags) {
         this.tags = tags;
+    }
+
+    /**
+     *
+     * @return
+     * The answers
+     */
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    /**
+     *
+     * @param answers
+     * The answers
+     */
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 
     /**
@@ -170,6 +211,60 @@ public class Item {
      */
     public void setLastEditor(LastEditor lastEditor) {
         this.lastEditor = lastEditor;
+    }
+
+    /**
+     *
+     * @return
+     * The canClose
+     */
+    public Boolean getCanClose() {
+        return canClose;
+    }
+
+    /**
+     *
+     * @param canClose
+     * The can_close
+     */
+    public void setCanClose(Boolean canClose) {
+        this.canClose = canClose;
+    }
+
+    /**
+     *
+     * @return
+     * The canFlag
+     */
+    public Boolean getCanFlag() {
+        return canFlag;
+    }
+
+    /**
+     *
+     * @param canFlag
+     * The can_flag
+     */
+    public void setCanFlag(Boolean canFlag) {
+        this.canFlag = canFlag;
+    }
+
+    /**
+     *
+     * @return
+     * The reopenVoteCount
+     */
+    public Integer getReopenVoteCount() {
+        return reopenVoteCount;
+    }
+
+    /**
+     *
+     * @param reopenVoteCount
+     * The reopen_vote_count
+     */
+    public void setReopenVoteCount(Integer reopenVoteCount) {
+        this.reopenVoteCount = reopenVoteCount;
     }
 
     /**
@@ -260,42 +355,6 @@ public class Item {
      */
     public void setUpVoteCount(Integer upVoteCount) {
         this.upVoteCount = upVoteCount;
-    }
-
-    /**
-     *
-     * @return
-     * The bountyAmount
-     */
-    public Integer getBountyAmount() {
-        return bountyAmount;
-    }
-
-    /**
-     *
-     * @param bountyAmount
-     * The bounty_amount
-     */
-    public void setBountyAmount(Integer bountyAmount) {
-        this.bountyAmount = bountyAmount;
-    }
-
-    /**
-     *
-     * @return
-     * The bountyClosesDate
-     */
-    public Integer getBountyClosesDate() {
-        return bountyClosesDate;
-    }
-
-    /**
-     *
-     * @param bountyClosesDate
-     * The bounty_closes_date
-     */
-    public void setBountyClosesDate(Integer bountyClosesDate) {
-        this.bountyClosesDate = bountyClosesDate;
     }
 
     /**
@@ -409,6 +468,42 @@ public class Item {
     /**
      *
      * @return
+     * The shareLink
+     */
+    public String getShareLink() {
+        return shareLink;
+    }
+
+    /**
+     *
+     * @param shareLink
+     * The share_link
+     */
+    public void setShareLink(String shareLink) {
+        this.shareLink = shareLink;
+    }
+
+    /**
+     *
+     * @return
+     * The bodyMarkdown
+     */
+    public String getBodyMarkdown() {
+        return bodyMarkdown;
+    }
+
+    /**
+     *
+     * @param bodyMarkdown
+     * The body_markdown
+     */
+    public void setBodyMarkdown(String bodyMarkdown) {
+        this.bodyMarkdown = bodyMarkdown;
+    }
+
+    /**
+     *
+     * @return
      * The link
      */
     public String getLink() {
@@ -445,19 +540,19 @@ public class Item {
     /**
      *
      * @return
-     * The acceptedAnswerId
+     * The body
      */
-    public Integer getAcceptedAnswerId() {
-        return acceptedAnswerId;
+    public String getBody() {
+        return body;
     }
 
     /**
      *
-     * @param acceptedAnswerId
-     * The accepted_answer_id
+     * @param body
+     * The body
      */
-    public void setAcceptedAnswerId(Integer acceptedAnswerId) {
-        this.acceptedAnswerId = acceptedAnswerId;
+    public void setBody(String body) {
+        this.body = body;
     }
 
 }

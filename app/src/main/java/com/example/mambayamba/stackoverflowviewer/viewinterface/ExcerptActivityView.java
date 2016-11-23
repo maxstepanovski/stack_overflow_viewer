@@ -1,6 +1,6 @@
 package com.example.mambayamba.stackoverflowviewer.viewinterface;
 
-import com.example.mambayamba.stackoverflowviewer.model.question.excerpt.Item;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.excerpt.Item;
 
 import java.util.List;
 

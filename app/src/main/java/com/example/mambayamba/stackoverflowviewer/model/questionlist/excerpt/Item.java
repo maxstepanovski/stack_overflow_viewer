@@ -1,4 +1,4 @@
-package com.example.mambayamba.stackoverflowviewer.model.question.excerpt;
+package com.example.mambayamba.stackoverflowviewer.model.questionlist.excerpt;
 
 import java.util.ArrayList;
 import java.util.List;

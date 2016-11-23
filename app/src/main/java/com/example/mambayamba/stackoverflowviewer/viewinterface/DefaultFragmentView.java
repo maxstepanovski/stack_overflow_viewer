@@ -1,6 +1,6 @@
 package com.example.mambayamba.stackoverflowviewer.viewinterface;
 
-import com.example.mambayamba.stackoverflowviewer.model.question.average.Item;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.average.Item;
 
 import java.util.List;
 

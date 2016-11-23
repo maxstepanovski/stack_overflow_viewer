@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mambayamba.stackoverflowviewer.R;
-import com.example.mambayamba.stackoverflowviewer.model.question.average.Item;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.average.Item;
 import com.example.mambayamba.stackoverflowviewer.screen.viewholders.DefaultQuestionHolder;
 
 import java.util.List;

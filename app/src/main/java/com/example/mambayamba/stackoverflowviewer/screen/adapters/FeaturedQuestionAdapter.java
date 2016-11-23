@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.example.mambayamba.stackoverflowviewer.FeaturedFragment;
 import com.example.mambayamba.stackoverflowviewer.R;
-import com.example.mambayamba.stackoverflowviewer.model.question.featured.Item;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.featured.Item;
 import com.example.mambayamba.stackoverflowviewer.screen.viewholders.FeaturedQuestionHolder;
 
 import java.util.List;

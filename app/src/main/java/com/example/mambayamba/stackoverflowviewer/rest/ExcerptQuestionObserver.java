@@ -1,9 +1,7 @@
 package com.example.mambayamba.stackoverflowviewer.rest;
 
-import android.util.Log;
-
-import com.example.mambayamba.stackoverflowviewer.model.question.excerpt.Item;
-import com.example.mambayamba.stackoverflowviewer.model.question.excerpt.JsonExcerptResponse;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.excerpt.Item;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.excerpt.ExcerptQuestionListResponse;
 import com.example.mambayamba.stackoverflowviewer.presenters.ExcerptActivityPresenter;
 
 import java.util.List;
@@ -13,7 +11,7 @@ import me.tatarka.rxloader.RxLoaderObserver;
 /**
  * Created by mambayamba on 20.11.2016.
  */
-public class ExcerptQuestionObserver extends RxLoaderObserver<JsonExcerptResponse> {
+public class ExcerptQuestionObserver extends RxLoaderObserver<ExcerptQuestionListResponse> {
     private static final String TAG = "happyExcerptObserver";
     private ExcerptActivityPresenter presenter;
 
@@ -27,7 +25,7 @@ public class ExcerptQuestionObserver extends RxLoaderObserver<JsonExcerptRespons
     }
 
     @Override
-    public void onNext(JsonExcerptResponse value) {
+    public void onNext(ExcerptQuestionListResponse value) {
         List<Item> questions = value.getItems();
 //        for(Item item:questions)
 //            Log.d(TAG, item.getTitle().toString()+", "+item.getExcerpt().toString()+", "+item.getOwner().getDisplayName().toString());

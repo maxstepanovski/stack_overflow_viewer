@@ -1,4 +1,4 @@
-package com.example.mambayamba.stackoverflowviewer.model.question.average;
+package com.example.mambayamba.stackoverflowviewer.model.questionlist.average;
 
 import java.util.List;
 
@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor(suppressConstructorProperties = true)
-public class JsonQuestionResponse {
+public class QuestionListResponse {
     private List<Item> items;
 }

@@ -1,7 +1,7 @@
 package com.example.mambayamba.stackoverflowviewer.rest;
 
-import com.example.mambayamba.stackoverflowviewer.model.question.featured.Item;
-import com.example.mambayamba.stackoverflowviewer.model.question.featured.JsonFeaturedResponse;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.featured.Item;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.featured.FeaturedQuestionListResponse;
 import com.example.mambayamba.stackoverflowviewer.presenters.FeaturedFragmentPresenter;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import me.tatarka.rxloader.RxLoaderObserver;
 /**
  * Created by mambayamba on 19.11.2016.
  */
-public class FeaturedQuestionObserver extends RxLoaderObserver<JsonFeaturedResponse> {
+public class FeaturedQuestionObserver extends RxLoaderObserver<FeaturedQuestionListResponse> {
     private FeaturedFragmentPresenter presenter;
 
     public FeaturedQuestionObserver(FeaturedFragmentPresenter presenter) {
@@ -24,7 +24,7 @@ public class FeaturedQuestionObserver extends RxLoaderObserver<JsonFeaturedRespo
     }
 
     @Override
-    public void onNext(JsonFeaturedResponse value) {
+    public void onNext(FeaturedQuestionListResponse value) {
         List<Item> questions = value.getItems();
         for(Item item:questions)
             presenter.passShowList(questions);

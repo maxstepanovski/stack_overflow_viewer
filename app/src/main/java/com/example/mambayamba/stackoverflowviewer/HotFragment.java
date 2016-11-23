@@ -11,10 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.mambayamba.stackoverflowviewer.model.question.average.Item;
-import com.example.mambayamba.stackoverflowviewer.model.question.average.JsonQuestionResponse;
-import com.example.mambayamba.stackoverflowviewer.presenters.DefaultFragmentPresenter;
-import com.example.mambayamba.stackoverflowviewer.rest.DefaultQuestionObserver;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.average.Item;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.average.QuestionListResponse;
+import com.example.mambayamba.stackoverflowviewer.presenters.QuestionFragmentPresenter;
+import com.example.mambayamba.stackoverflowviewer.rest.QuestionObserver;
 import com.example.mambayamba.stackoverflowviewer.screen.DownloadDialog;
 import com.example.mambayamba.stackoverflowviewer.screen.adapters.DefaultQuestionAdapter;
 import com.example.mambayamba.stackoverflowviewer.viewinterface.DefaultFragmentView;
@@ -33,10 +33,10 @@ import me.tatarka.rxloader.RxLoaderManagerCompat;
 public class HotFragment extends Fragment implements DefaultFragmentView {
     public static final String TAG = "happyHotFragment";
     private DownloadDialog downloadDialog;
-    private DefaultFragmentPresenter presenter;
+    private QuestionFragmentPresenter presenter;
     private DefaultQuestionAdapter adapter;
     private RxLoaderManager loaderManager;
-    private RxLoader<JsonQuestionResponse> rxLoader;
+    private RxLoader<QuestionListResponse> rxLoader;
     @BindView(R.id.hot_recycler_view)RecyclerView recyclerView;
 
     @Nullable
@@ -46,12 +46,12 @@ public class HotFragment extends Fragment implements DefaultFragmentView {
         ButterKnife.bind(this, view);
 
         downloadDialog = new DownloadDialog(getActivity());
-        presenter = new DefaultFragmentPresenter(this);
+        presenter = new QuestionFragmentPresenter(this);
 
         loaderManager = RxLoaderManagerCompat.get(this);
         rxLoader = loaderManager.create(
                 presenter.initializeHotQuestions(),
-                new DefaultQuestionObserver(presenter)
+                new QuestionObserver(presenter)
         ).start();
 
         return view;

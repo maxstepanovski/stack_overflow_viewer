@@ -1,12 +1,18 @@
-package com.example.mambayamba.stackoverflowviewer.model.question.excerpt;
+package com.example.mambayamba.stackoverflowviewer.model.questionpage;
 
+/**
+ * Created by mambayamba on 21.11.2016.
+ */
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("org.jsonschema2pojo")
-public class Owner {
+public class LastEditor {
 
+    @SerializedName("badge_counts")
+    @Expose
+    private BadgeCounts badgeCounts;
     @SerializedName("reputation")
     @Expose
     private Integer reputation;
@@ -30,7 +36,7 @@ public class Owner {
      * No args constructor for use in serialization
      *
      */
-    public Owner() {
+    public LastEditor() {
     }
 
     /**
@@ -39,16 +45,36 @@ public class Owner {
      * @param link
      * @param userId
      * @param reputation
+     * @param badgeCounts
      * @param displayName
      * @param userType
      */
-    public Owner(Integer reputation, Integer userId, String userType, String profileImage, String displayName, String link) {
+    public LastEditor(BadgeCounts badgeCounts, Integer reputation, Integer userId, String userType, String profileImage, String displayName, String link) {
+        this.badgeCounts = badgeCounts;
         this.reputation = reputation;
         this.userId = userId;
         this.userType = userType;
         this.profileImage = profileImage;
         this.displayName = displayName;
         this.link = link;
+    }
+
+    /**
+     *
+     * @return
+     * The badgeCounts
+     */
+    public BadgeCounts getBadgeCounts() {
+        return badgeCounts;
+    }
+
+    /**
+     *
+     * @param badgeCounts
+     * The badge_counts
+     */
+    public void setBadgeCounts(BadgeCounts badgeCounts) {
+        this.badgeCounts = badgeCounts;
     }
 
     /**

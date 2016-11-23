@@ -1,8 +1,8 @@
 package com.example.mambayamba.stackoverflowviewer.presenters;
 
-import com.example.mambayamba.stackoverflowviewer.model.question.featured.FeaturedModel;
-import com.example.mambayamba.stackoverflowviewer.model.question.featured.Item;
-import com.example.mambayamba.stackoverflowviewer.model.question.featured.JsonFeaturedResponse;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.featured.FeaturedQuestionListModel;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.featured.Item;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.featured.FeaturedQuestionListResponse;
 import com.example.mambayamba.stackoverflowviewer.presenters.presenterinterface.FeaturedModelInterface;
 import com.example.mambayamba.stackoverflowviewer.viewinterface.FeaturedFragmentView;
 
@@ -15,14 +15,14 @@ import rx.Observable;
  */
 public class FeaturedFragmentPresenter implements FeaturedModelInterface{
     private FeaturedFragmentView viewElement;
-    private FeaturedModel questionModel;
+    private FeaturedQuestionListModel questionModel;
 
     public FeaturedFragmentPresenter(FeaturedFragmentView viewElement){
         this.viewElement = viewElement;
-        this.questionModel = new FeaturedModel(this);
+        this.questionModel = new FeaturedQuestionListModel();
     }
 
-    public Observable<JsonFeaturedResponse> initializeFeaturedQuestions(){
+    public Observable<FeaturedQuestionListResponse> initializeFeaturedQuestions(){
         return questionModel.getFeaturedQuestions();
     }
 

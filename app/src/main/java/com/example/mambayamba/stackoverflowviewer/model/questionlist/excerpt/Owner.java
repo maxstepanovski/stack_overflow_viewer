@@ -1,11 +1,11 @@
-package com.example.mambayamba.stackoverflowviewer.model.question.excerpt;
+package com.example.mambayamba.stackoverflowviewer.model.questionlist.excerpt;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("org.jsonschema2pojo")
-public class LastActivityUser {
+public class Owner {
 
     @SerializedName("reputation")
     @Expose
@@ -30,7 +30,7 @@ public class LastActivityUser {
      * No args constructor for use in serialization
      *
      */
-    public LastActivityUser() {
+    public Owner() {
     }
 
     /**
@@ -42,7 +42,7 @@ public class LastActivityUser {
      * @param displayName
      * @param userType
      */
-    public LastActivityUser(Integer reputation, Integer userId, String userType, String profileImage, String displayName, String link) {
+    public Owner(Integer reputation, Integer userId, String userType, String profileImage, String displayName, String link) {
         this.reputation = reputation;
         this.userId = userId;
         this.userType = userType;

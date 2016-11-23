@@ -1,12 +1,10 @@
-package com.example.mambayamba.stackoverflowviewer.model.question.average;
-
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+package com.example.mambayamba.stackoverflowviewer.model.questionlist.featured;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.annotation.Generated;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 @Generated("org.jsonschema2pojo")
 public class Item {
@@ -17,12 +15,30 @@ public class Item {
     @SerializedName("owner")
     @Expose
     private Owner owner;
+    @SerializedName("last_editor")
+    @Expose
+    private LastEditor lastEditor;
     @SerializedName("is_answered")
     @Expose
     private Boolean isAnswered;
     @SerializedName("view_count")
     @Expose
     private Integer viewCount;
+    @SerializedName("favorite_count")
+    @Expose
+    private Integer favoriteCount;
+    @SerializedName("down_vote_count")
+    @Expose
+    private Integer downVoteCount;
+    @SerializedName("up_vote_count")
+    @Expose
+    private Integer upVoteCount;
+    @SerializedName("bounty_amount")
+    @Expose
+    private Integer bountyAmount;
+    @SerializedName("bounty_closes_date")
+    @Expose
+    private Integer bountyClosesDate;
     @SerializedName("answer_count")
     @Expose
     private Integer answerCount;
@@ -50,12 +66,6 @@ public class Item {
     @SerializedName("accepted_answer_id")
     @Expose
     private Integer acceptedAnswerId;
-    @SerializedName("closed_date")
-    @Expose
-    private Integer closedDate;
-    @SerializedName("closed_reason")
-    @Expose
-    private String closedReason;
 
     /**
      * No args constructor for use in serialization
@@ -67,26 +77,36 @@ public class Item {
     /**
      *
      * @param tags
-     * @param closedReason
+     * @param bountyClosesDate
+     * @param downVoteCount
      * @param questionId
-     * @param lastActivityDate
+     * @param bountyAmount
      * @param link
+     * @param lastActivityDate
      * @param score
-     * @param closedDate
+     * @param lastEditor
      * @param lastEditDate
      * @param creationDate
+     * @param upVoteCount
      * @param title
      * @param answerCount
+     * @param favoriteCount
      * @param isAnswered
      * @param owner
      * @param acceptedAnswerId
      * @param viewCount
      */
-    public Item(List<String> tags, Owner owner, Boolean isAnswered, Integer viewCount, Integer answerCount, Integer score, Integer lastActivityDate, Integer creationDate, Integer lastEditDate, Integer questionId, String link, String title, Integer acceptedAnswerId, Integer closedDate, String closedReason) {
+    public Item(List<String> tags, Owner owner, LastEditor lastEditor, Boolean isAnswered, Integer viewCount, Integer favoriteCount, Integer downVoteCount, Integer upVoteCount, Integer bountyAmount, Integer bountyClosesDate, Integer answerCount, Integer score, Integer lastActivityDate, Integer creationDate, Integer lastEditDate, Integer questionId, String link, String title, Integer acceptedAnswerId) {
         this.tags = tags;
         this.owner = owner;
+        this.lastEditor = lastEditor;
         this.isAnswered = isAnswered;
         this.viewCount = viewCount;
+        this.favoriteCount = favoriteCount;
+        this.downVoteCount = downVoteCount;
+        this.upVoteCount = upVoteCount;
+        this.bountyAmount = bountyAmount;
+        this.bountyClosesDate = bountyClosesDate;
         this.answerCount = answerCount;
         this.score = score;
         this.lastActivityDate = lastActivityDate;
@@ -96,8 +116,6 @@ public class Item {
         this.link = link;
         this.title = title;
         this.acceptedAnswerId = acceptedAnswerId;
-        this.closedDate = closedDate;
-        this.closedReason = closedReason;
     }
 
     /**
@@ -139,6 +157,24 @@ public class Item {
     /**
      *
      * @return
+     * The lastEditor
+     */
+    public LastEditor getLastEditor() {
+        return lastEditor;
+    }
+
+    /**
+     *
+     * @param lastEditor
+     * The last_editor
+     */
+    public void setLastEditor(LastEditor lastEditor) {
+        this.lastEditor = lastEditor;
+    }
+
+    /**
+     *
+     * @return
      * The isAnswered
      */
     public Boolean getIsAnswered() {
@@ -170,6 +206,96 @@ public class Item {
      */
     public void setViewCount(Integer viewCount) {
         this.viewCount = viewCount;
+    }
+
+    /**
+     *
+     * @return
+     * The favoriteCount
+     */
+    public Integer getFavoriteCount() {
+        return favoriteCount;
+    }
+
+    /**
+     *
+     * @param favoriteCount
+     * The favorite_count
+     */
+    public void setFavoriteCount(Integer favoriteCount) {
+        this.favoriteCount = favoriteCount;
+    }
+
+    /**
+     *
+     * @return
+     * The downVoteCount
+     */
+    public Integer getDownVoteCount() {
+        return downVoteCount;
+    }
+
+    /**
+     *
+     * @param downVoteCount
+     * The down_vote_count
+     */
+    public void setDownVoteCount(Integer downVoteCount) {
+        this.downVoteCount = downVoteCount;
+    }
+
+    /**
+     *
+     * @return
+     * The upVoteCount
+     */
+    public Integer getUpVoteCount() {
+        return upVoteCount;
+    }
+
+    /**
+     *
+     * @param upVoteCount
+     * The up_vote_count
+     */
+    public void setUpVoteCount(Integer upVoteCount) {
+        this.upVoteCount = upVoteCount;
+    }
+
+    /**
+     *
+     * @return
+     * The bountyAmount
+     */
+    public Integer getBountyAmount() {
+        return bountyAmount;
+    }
+
+    /**
+     *
+     * @param bountyAmount
+     * The bounty_amount
+     */
+    public void setBountyAmount(Integer bountyAmount) {
+        this.bountyAmount = bountyAmount;
+    }
+
+    /**
+     *
+     * @return
+     * The bountyClosesDate
+     */
+    public Integer getBountyClosesDate() {
+        return bountyClosesDate;
+    }
+
+    /**
+     *
+     * @param bountyClosesDate
+     * The bounty_closes_date
+     */
+    public void setBountyClosesDate(Integer bountyClosesDate) {
+        this.bountyClosesDate = bountyClosesDate;
     }
 
     /**
@@ -332,42 +458,6 @@ public class Item {
      */
     public void setAcceptedAnswerId(Integer acceptedAnswerId) {
         this.acceptedAnswerId = acceptedAnswerId;
-    }
-
-    /**
-     *
-     * @return
-     * The closedDate
-     */
-    public Integer getClosedDate() {
-        return closedDate;
-    }
-
-    /**
-     *
-     * @param closedDate
-     * The closed_date
-     */
-    public void setClosedDate(Integer closedDate) {
-        this.closedDate = closedDate;
-    }
-
-    /**
-     *
-     * @return
-     * The closedReason
-     */
-    public String getClosedReason() {
-        return closedReason;
-    }
-
-    /**
-     *
-     * @param closedReason
-     * The closed_reason
-     */
-    public void setClosedReason(String closedReason) {
-        this.closedReason = closedReason;
     }
 
 }

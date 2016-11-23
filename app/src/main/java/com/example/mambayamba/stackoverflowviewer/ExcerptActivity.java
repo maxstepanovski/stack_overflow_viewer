@@ -10,8 +10,8 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-import com.example.mambayamba.stackoverflowviewer.model.question.excerpt.Item;
-import com.example.mambayamba.stackoverflowviewer.model.question.excerpt.JsonExcerptResponse;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.excerpt.Item;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.excerpt.ExcerptQuestionListResponse;
 import com.example.mambayamba.stackoverflowviewer.presenters.ExcerptActivityPresenter;
 import com.example.mambayamba.stackoverflowviewer.rest.ExcerptQuestionObserver;
 import com.example.mambayamba.stackoverflowviewer.screen.DownloadDialog;
@@ -20,11 +20,9 @@ import com.example.mambayamba.stackoverflowviewer.viewinterface.ExcerptActivityV
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import me.tatarka.rxloader.RxLoader;
 import me.tatarka.rxloader.RxLoader1;
 import me.tatarka.rxloader.RxLoaderManager;
 import me.tatarka.rxloader.RxLoaderManagerCompat;
-import me.tatarka.rxloader.RxLoaderObserver;
 import rx.Observable;
 import rx.functions.Func1;
 
@@ -37,7 +35,7 @@ public class ExcerptActivity extends AppCompatActivity implements ExcerptActivit
     private ExcerptActivityPresenter presenter;
     private ExcerptQuestionAdapter adapter;
     private RxLoaderManager loaderManager;
-    private RxLoader1<String, JsonExcerptResponse> rxLoader;
+    private RxLoader1<String, ExcerptQuestionListResponse> rxLoader;
     private String query;
     private SearchView searchView;
     @BindView(R.id.excerpt_recycler_view)RecyclerView recyclerView;
@@ -53,9 +51,9 @@ public class ExcerptActivity extends AppCompatActivity implements ExcerptActivit
         downloadDialog = new DownloadDialog(this);
         presenter = new ExcerptActivityPresenter(this);
         loaderManager = RxLoaderManagerCompat.get(this);
-        rxLoader = loaderManager.create(new Func1<String, Observable<JsonExcerptResponse>>() {
+        rxLoader = loaderManager.create(new Func1<String, Observable<ExcerptQuestionListResponse>>() {
             @Override
-            public Observable<JsonExcerptResponse> call(String s) {
+            public Observable<ExcerptQuestionListResponse> call(String s) {
                 return presenter.initializeExcerptQuestions(s);
             }
         }, new ExcerptQuestionObserver(presenter) {
@@ -103,9 +101,7 @@ public class ExcerptActivity extends AppCompatActivity implements ExcerptActivit
     @Override
     public void showError() {
         downloadDialog.cancel();
-        Toast.makeText(this,
-                getResources().getString(R.string.loading_error),
-                Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.loading_error), Toast.LENGTH_SHORT).show();
     }
 
     @Override

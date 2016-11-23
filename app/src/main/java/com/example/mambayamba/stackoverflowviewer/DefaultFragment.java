@@ -5,20 +5,18 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.mambayamba.stackoverflowviewer.model.question.average.Item;
-import com.example.mambayamba.stackoverflowviewer.model.question.average.JsonQuestionResponse;
-import com.example.mambayamba.stackoverflowviewer.presenters.DefaultFragmentPresenter;
-import com.example.mambayamba.stackoverflowviewer.rest.DefaultQuestionObserver;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.average.Item;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.average.QuestionListResponse;
+import com.example.mambayamba.stackoverflowviewer.presenters.QuestionFragmentPresenter;
+import com.example.mambayamba.stackoverflowviewer.rest.QuestionObserver;
 import com.example.mambayamba.stackoverflowviewer.screen.DownloadDialog;
 import com.example.mambayamba.stackoverflowviewer.screen.adapters.DefaultQuestionAdapter;
 import com.example.mambayamba.stackoverflowviewer.viewinterface.DefaultFragmentView;
-import com.example.mambayamba.stackoverflowviewer.viewinterface.OnQueryPassed;
 
 import java.util.List;
 
@@ -35,10 +33,10 @@ import me.tatarka.rxloader.RxLoaderManagerCompat;
 public class DefaultFragment extends Fragment implements DefaultFragmentView {
     private static final String TAG = "happyDefaultFragment";
     private DownloadDialog downloadDialog;
-    private DefaultFragmentPresenter presenter;
+    private QuestionFragmentPresenter presenter;
     private DefaultQuestionAdapter adapter;
     private RxLoaderManager loaderManager;
-    private RxLoader<JsonQuestionResponse> rxLoader;
+    private RxLoader<QuestionListResponse> rxLoader;
     @BindView(R.id.default_recycler_view)RecyclerView recyclerView;
 
     @Nullable
@@ -48,12 +46,12 @@ public class DefaultFragment extends Fragment implements DefaultFragmentView {
         ButterKnife.bind(this, view);
 
         downloadDialog = new DownloadDialog(getActivity());
-        presenter = new DefaultFragmentPresenter(this);
+        presenter = new QuestionFragmentPresenter(this);
 
         loaderManager = RxLoaderManagerCompat.get(this);
         rxLoader = loaderManager.create(
                 presenter.initializeDefaultQuestions(),
-                new DefaultQuestionObserver(presenter)
+                new QuestionObserver(presenter)
         ).start();
 
         return view;
@@ -71,9 +69,7 @@ public class DefaultFragment extends Fragment implements DefaultFragmentView {
 
     @Override
     public void showError() {
-        Toast.makeText(getActivity(),
-                getResources().getString(R.string.loading_error),
-                Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), getResources().getString(R.string.loading_error), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -85,7 +81,6 @@ public class DefaultFragment extends Fragment implements DefaultFragmentView {
 
     @Override
     public void refresh() {
-        Log.d(TAG, "default");
         rxLoader.restart();
     }
 }

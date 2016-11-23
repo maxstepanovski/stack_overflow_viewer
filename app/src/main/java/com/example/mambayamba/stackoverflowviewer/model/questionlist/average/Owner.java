@@ -1,4 +1,4 @@
-package com.example.mambayamba.stackoverflowviewer.model.question.average;
+package com.example.mambayamba.stackoverflowviewer.model.questionlist.average;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

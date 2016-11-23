@@ -1,4 +1,4 @@
-package com.example.mambayamba.stackoverflowviewer.model.question.excerpt;
+package com.example.mambayamba.stackoverflowviewer.model.questionlist.excerpt;
 
 import java.util.List;
 
@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor (suppressConstructorProperties = true)
 
-public class JsonExcerptResponse {
+public class ExcerptQuestionListResponse {
     private List<Item> items;
 }

@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 import com.example.mambayamba.stackoverflowviewer.rest.FeaturedQuestionObserver;
 import com.example.mambayamba.stackoverflowviewer.screen.adapters.FeaturedQuestionAdapter;
-import com.example.mambayamba.stackoverflowviewer.model.question.featured.Item;
-import com.example.mambayamba.stackoverflowviewer.model.question.featured.JsonFeaturedResponse;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.featured.Item;
+import com.example.mambayamba.stackoverflowviewer.model.questionlist.featured.FeaturedQuestionListResponse;
 import com.example.mambayamba.stackoverflowviewer.presenters.FeaturedFragmentPresenter;
 import com.example.mambayamba.stackoverflowviewer.screen.DownloadDialog;
 import com.example.mambayamba.stackoverflowviewer.viewinterface.FeaturedFragmentView;
@@ -36,7 +36,7 @@ public class FeaturedFragment extends Fragment implements FeaturedFragmentView{
     private FeaturedFragmentPresenter presenter;
     private FeaturedQuestionAdapter adapter;
     private RxLoaderManager loaderManager;
-    private RxLoader<JsonFeaturedResponse> rxLoader;
+    private RxLoader<FeaturedQuestionListResponse> rxLoader;
     @BindView(R.id.default_recycler_view)RecyclerView recyclerView;
 
     @Nullable
