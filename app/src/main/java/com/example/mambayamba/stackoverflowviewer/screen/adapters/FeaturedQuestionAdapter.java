@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.example.mambayamba.stackoverflowviewer.FeaturedFragment;
 import com.example.mambayamba.stackoverflowviewer.R;
 import com.example.mambayamba.stackoverflowviewer.model.questionlist.featured.Item;
+import com.example.mambayamba.stackoverflowviewer.screen.OnQuestionTitleClickListener;
 import com.example.mambayamba.stackoverflowviewer.screen.viewholders.FeaturedQuestionHolder;
 
 import java.util.List;
@@ -35,6 +36,8 @@ public class FeaturedQuestionAdapter extends RecyclerView.Adapter<FeaturedQuesti
     @Override
     public void onBindViewHolder(FeaturedQuestionHolder holder, int position) {
         holder.questionTitle.setText(questions.get(position).getTitle());
+        holder.questionTitle.setOnClickListener(
+                new OnQuestionTitleClickListener(fragment.getActivity(), questions.get(position).getQuestionId().toString()));
         holder.votesCount.setText(questions.get(position).getScore().toString());
         holder.answersCount.setText(questions.get(position).getAnswerCount().toString());
         holder.viewsCount.setText(questions.get(position).getViewCount().toString());

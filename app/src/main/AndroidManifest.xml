@@ -19,6 +19,9 @@
         <activity android:name=".ExcerptActivity">
 
         </activity>
+        <activity android:name=".QuestionPageActivity">
+
+        </activity>
     </application>
 
 </manifest>

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.mambayamba.stackoverflowviewer.R;
 import com.example.mambayamba.stackoverflowviewer.model.questionlist.excerpt.Item;
+import com.example.mambayamba.stackoverflowviewer.screen.OnQuestionTitleClickListener;
 import com.example.mambayamba.stackoverflowviewer.screen.viewholders.ExcerptQuestionHolder;
 
 import java.lang.ref.WeakReference;
@@ -36,6 +37,8 @@ public class ExcerptQuestionAdapter extends RecyclerView.Adapter<ExcerptQuestion
     @Override
     public void onBindViewHolder(ExcerptQuestionHolder holder, int position) {
         holder.questionTitle.setText(questions.get(position).getTitle().toString());
+        holder.questionTitle.setOnClickListener(
+                new OnQuestionTitleClickListener(activity.get(), questions.get(position).getQuestionId().toString()));
         holder.excerptBodySnippet.setText(questions.get(position).getExcerpt().toString());
         holder.votesCount.setText(questions.get(position).getScore().toString());
         holder.answersCount.setText(String.valueOf(questions.get(position).getAnswerCount()));

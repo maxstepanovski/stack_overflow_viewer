@@ -5,11 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.mambayamba.stackoverflowviewer.R;
 import com.example.mambayamba.stackoverflowviewer.model.questionlist.average.Item;
+import com.example.mambayamba.stackoverflowviewer.screen.OnQuestionTitleClickListener;
 import com.example.mambayamba.stackoverflowviewer.screen.viewholders.DefaultQuestionHolder;
-
 import java.util.List;
 
 /**
@@ -35,6 +34,9 @@ public class DefaultQuestionAdapter extends RecyclerView.Adapter<DefaultQuestion
     @Override
     public void onBindViewHolder(DefaultQuestionHolder holder, int position) {
         holder.questionTitle.setText(questions.get(position).getTitle());
+        holder.questionTitle.setOnClickListener(
+                new OnQuestionTitleClickListener(fragment.getActivity(),
+                questions.get(position).getQuestionId().toString()));
         holder.votesCount.setText(questions.get(position).getScore().toString());
         holder.answersCount.setText(questions.get(position).getAnswerCount().toString());
         holder.viewsCount.setText(questions.get(position).getViewCount().toString());
@@ -43,8 +45,6 @@ public class DefaultQuestionAdapter extends RecyclerView.Adapter<DefaultQuestion
             holder.tagOne.setText(questions.get(position).getTags().get(0).toString());
         if(questions.get(position).getTags().size() > 1 && !questions.get(position).getTags().get(1).isEmpty() )
             holder.tagTwo.setText(questions.get(position).getTags().get(1).toString());
-//        if(questions.get(position).getTags().size() > 2 && !questions.get(position).getTags().get(2).isEmpty())
-//            holder.tagThree.setText(questions.get(position).getTags().get(2).toString());
     }
 
     @Override

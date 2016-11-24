@@ -27,10 +27,7 @@ public class ExcerptQuestionObserver extends RxLoaderObserver<ExcerptQuestionLis
     @Override
     public void onNext(ExcerptQuestionListResponse value) {
         List<Item> questions = value.getItems();
-//        for(Item item:questions)
-//            Log.d(TAG, item.getTitle().toString()+", "+item.getExcerpt().toString()+", "+item.getOwner().getDisplayName().toString());
-        for(Item item:questions)
-            presenter.passShowList(questions);
+        presenter.passShowList(questions);
     }
 
     @Override

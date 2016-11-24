@@ -17,6 +17,7 @@ import rx.Observable;
 /**
  * MVP Business-logic Presenter class for DefaultFragment
  */
+
 public class QuestionFragmentPresenter implements QuestionModelInterface {
     final private DefaultFragmentView viewElement;
     final private QuestionListModel questionListModel;

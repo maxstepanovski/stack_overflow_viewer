@@ -8,6 +8,9 @@ import rx.schedulers.Schedulers;
 
 /**
  * Created by mambayamba on 16.11.2016.
+ *
+ * this class creates Observable<QuestionListResponse> objects using RestFactory.
+ * Allows QuestionPresenter to make api calls from within its Fragment.
  */
 @Data
 public class QuestionListModel {
