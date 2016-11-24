@@ -15,5 +15,5 @@ public interface QuestionPageActivityView {
     public void showLoading();
     public void hideLoading();
     public void showError();
-    public void showList(List<Item> pages);
+    public void showPage(List<Item> pages);
 }

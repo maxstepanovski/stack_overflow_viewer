@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/asked_viewed_active"
+    android:layout_toRightOf="@+id/arrow_up"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="asked: "
+        android:id="@+id/asked"
+        android:layout_margin="@dimen/some_margin"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/question_asked"
+        android:layout_toRightOf="@+id/asked"
+        android:layout_margin="@dimen/some_margin"
+        tools:text="19 november 2015, 9:00"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="viewed: "
+        android:id="@+id/viewed"
+        android:layout_below="@+id/asked"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="@dimen/some_margin"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/question_viewed"
+        android:layout_toRightOf="@+id/viewed"
+        android:layout_below="@+id/asked"
+        android:layout_margin="@dimen/some_margin"
+        tools:text="2189"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="active: "
+        android:id="@+id/active"
+        android:layout_below="@+id/viewed"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="@dimen/some_margin"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/question_active"
+        android:layout_toRightOf="@+id/active"
+        android:layout_below="@+id/viewed"
+        android:layout_margin="@dimen/some_margin"
+        tools:text="5 july 2016, 15:00"/>
+</RelativeLayout>

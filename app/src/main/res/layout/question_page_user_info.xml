@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/some_margin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/question_page_user_avatar"
+        android:src="@drawable/user_avatar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:id="@+id/question_page_user_name"
+        android:layout_toRightOf="@+id/question_page_user_avatar"
+        tools:text="Full user name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/question_page_user_score"
+        android:layout_below="@+id/question_page_user_name"
+        android:layout_toRightOf="@+id/question_page_user_avatar"
+        android:layout_marginRight="20dp"
+        tools:text="538"/>
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_margin="@dimen/some_margin"
+        android:src="@color/golden"
+        android:id="@+id/golden_coin"
+        android:layout_below="@+id/question_page_user_name"
+        android:layout_toRightOf="@+id/question_page_user_score"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gold_badges_count"
+        tools:text="5"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/golden_coin"
+        android:layout_below="@+id/question_page_user_name"/>
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_margin="@dimen/some_margin"
+        android:src="@color/silver"
+        android:id="@+id/silver_coin"
+        android:layout_below="@+id/question_page_user_name"
+        android:layout_toRightOf="@+id/gold_badges_count"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/silver_badges_count"
+        tools:text="5"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/silver_coin"
+        android:layout_below="@+id/question_page_user_name"/>
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_margin="@dimen/some_margin"
+        android:src="@color/copper"
+        android:id="@+id/copper_coin"
+        android:layout_below="@+id/question_page_user_name"
+        android:layout_toRightOf="@+id/silver_badges_count"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/copper_badges_count"
+        tools:text="5"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/copper_coin"
+        android:layout_below="@+id/question_page_user_name"/>
+
+</RelativeLayout>

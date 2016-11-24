@@ -10,4 +10,6 @@
     <string name="featured_fragment">1</string>
     <string name="week_fragment">3</string>
     <string name="excerpt">excerpt</string>
+    <string name="question_score">Score:</string>
+    <string name="dummy_text">After creating an empty project within Android Studio and including a pure java module, which compiles and works perfectly on its own, I get the following error on every single class within that module: Error:PARSE ERROR: Error:unsupported class file version 52.0 I tried to run the project using the embedded JDK and the one that I have on my system - JDK 8 (1.8.0_91), the result is the same. Note this, that I don\'t include the module as .jar library, it is source code which is importing with following instruction:</string>
 </resources>

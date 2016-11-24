@@ -33,8 +33,6 @@ public class QuestionPageActivity extends AppCompatActivity implements QuestionP
     private String questionId;
 
 
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,10 +67,8 @@ public class QuestionPageActivity extends AppCompatActivity implements QuestionP
     }
 
     @Override
-    public void showList(List<Item> pages) {
+    public void showPage(List<Item> pages) {
         downloadDialog.cancel();
-        Log.d(TAG, pages.get(0).getQuestionId()+"\n"+
-                pages.get(0).getTitle()+"\n"+
-                pages.get(0).getAnswerCount().toString());
+
     }
 }

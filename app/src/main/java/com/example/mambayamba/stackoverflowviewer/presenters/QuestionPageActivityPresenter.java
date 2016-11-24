@@ -31,7 +31,7 @@ public class QuestionPageActivityPresenter implements QuestionPageModelInterface
 
     @Override
     public void passShowPage(List<Item> pages) {
-        viewElement.showList(pages);
+        viewElement.showPage(pages);
     }
 
     @Override
