@@ -99,41 +99,15 @@
         android:layout_below="@id/featured_question_title"
         android:layout_toRightOf="@+id/featured_dummy_last_activity"/>
 
-    <TextView
+    <org.apmem.tools.layouts.FlowLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/featured_tag_one"
-        tools:text="tag one"
-        android:textColor="@color/textColor"
-        android:layout_margin="@dimen/some_margin"
-        android:layout_below="@+id/featured_dummy_last_activity"
-        android:layout_toRightOf="@id/featured_linear_layout_views"
-        android:padding="1dp"
-        android:background="@color/tagBackground"/>
+        android:orientation="horizontal"
+        android:id="@+id/featured_tag_layout"
+        android:layout_below="@+id/featured_linear_layout_views"
+        android:layout_alignLeft="@+id/featured_question_title">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/featured_tag_two"
-        tools:text="tag two"
-        android:textColor="@color/textColor"
-        android:layout_margin="@dimen/some_margin"
-        android:layout_below="@+id/featured_dummy_last_activity"
-        android:layout_toRightOf="@+id/featured_tag_one"
-        android:padding="1dp"
-        android:background="@color/tagBackground"/>
-
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:id="@+id/featured_tag_three"-->
-    <!--tools:text="tag three"-->
-    <!--android:textColor="@color/textColor"-->
-    <!--android:layout_margin="@dimen/some_margin"-->
-    <!--android:layout_below="@+id/featured_dummy_last_activity"-->
-    <!--android:layout_toRightOf="@id/featured_tag_two"-->
-    <!--android:padding="1dp"-->
-    <!--android:background="@color/tagBackground"/>-->
+    </org.apmem.tools.layouts.FlowLayout>
 
 
 </RelativeLayout>

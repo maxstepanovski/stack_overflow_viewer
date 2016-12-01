@@ -66,17 +66,17 @@
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:layout_margin="@dimen/some_margin"
-        android:src="@color/copper"
-        android:id="@+id/copper_coin"
+        android:src="@color/bronze"
+        android:id="@+id/bronze_coin"
         android:layout_below="@+id/question_page_user_name"
         android:layout_toRightOf="@+id/silver_badges_count"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/copper_badges_count"
+        android:id="@+id/bronze_badges_count"
         tools:text="5"
         android:layout_marginRight="5dp"
-        android:layout_toRightOf="@+id/copper_coin"
+        android:layout_toRightOf="@+id/bronze_coin"
         android:layout_below="@+id/question_page_user_name"/>
 
 </RelativeLayout>

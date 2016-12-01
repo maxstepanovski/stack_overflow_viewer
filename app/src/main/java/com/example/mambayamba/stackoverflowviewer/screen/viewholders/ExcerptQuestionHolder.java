@@ -2,23 +2,28 @@ package com.example.mambayamba.stackoverflowviewer.screen.viewholders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.mambayamba.stackoverflowviewer.R;
 
+import org.apmem.tools.layouts.FlowLayout;
+
+import lombok.Data;
+
 /**
  * Created by mambayamba on 20.11.2016.
  */
+
+@Data
 public class ExcerptQuestionHolder extends RecyclerView.ViewHolder{
-    public TextView questionTitle;
-    public TextView excerptBodySnippet;
-    public TextView votesCount;
-    public TextView answersCount;
-    public TextView viewsCount;
-    public TextView userName;
-    public TextView tagOne;
-    public TextView tagTwo;
-    public TextView tagThree;
+    private TextView questionTitle;
+    private TextView excerptBodySnippet;
+    private TextView votesCount;
+    private TextView answersCount;
+    private TextView viewsCount;
+    private TextView userName;
+    private FlowLayout tagLayout;
 
     public ExcerptQuestionHolder(View view) {
         super(view);
@@ -28,7 +33,6 @@ public class ExcerptQuestionHolder extends RecyclerView.ViewHolder{
         answersCount = (TextView)view.findViewById(R.id.excerpt_answers_count);
         viewsCount = (TextView)view.findViewById(R.id.excerpt_views_count);
         userName = (TextView)view.findViewById(R.id.excerpt_last_activity_user_name);
-        tagOne = (TextView)view.findViewById(R.id.excerpt_tag_one);
-        tagTwo = (TextView)view.findViewById(R.id.excerpt_tag_two);
+        tagLayout = (FlowLayout) view.findViewById(R.id.excerpt_tag_layout);
     }
 }

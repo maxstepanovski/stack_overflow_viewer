@@ -1,15 +1,19 @@
 package com.example.mambayamba.stackoverflowviewer.screen.adapters;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.mambayamba.stackoverflowviewer.R;
 import com.example.mambayamba.stackoverflowviewer.model.questionlist.excerpt.Item;
 import com.example.mambayamba.stackoverflowviewer.screen.OnQuestionTitleClickListener;
 import com.example.mambayamba.stackoverflowviewer.screen.viewholders.ExcerptQuestionHolder;
+
+import org.apmem.tools.layouts.FlowLayout;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -36,18 +40,34 @@ public class ExcerptQuestionAdapter extends RecyclerView.Adapter<ExcerptQuestion
 
     @Override
     public void onBindViewHolder(ExcerptQuestionHolder holder, int position) {
-        holder.questionTitle.setText(questions.get(position).getTitle().toString());
-        holder.questionTitle.setOnClickListener(
-                new OnQuestionTitleClickListener(activity.get(), questions.get(position).getQuestionId().toString()));
-        holder.excerptBodySnippet.setText(questions.get(position).getExcerpt().toString());
-        holder.votesCount.setText(questions.get(position).getScore().toString());
-        holder.answersCount.setText(String.valueOf(questions.get(position).getAnswerCount()));
-        holder.viewsCount.setText(questions.get(position).getQuestionScore().toString());
-        holder.userName.setText(questions.get(position).getOwner().getDisplayName().toString());
-        if(questions.get(position).getTags().size() > 0 && !questions.get(position).getTags().get(0).isEmpty())
-            holder.tagOne.setText(questions.get(position).getTags().get(0).toString());
-        if(questions.get(position).getTags().size() > 1 && !questions.get(position).getTags().get(1).isEmpty() )
-            holder.tagTwo.setText(questions.get(position).getTags().get(1).toString());
+        Item question = questions.get(position);
+        holder.getQuestionTitle().setText(question.getTitle().toString());
+        holder.getQuestionTitle().setOnClickListener(
+                new OnQuestionTitleClickListener(activity.get(), question.getQuestionId().toString()));
+        holder.getExcerptBodySnippet().setText(question.getExcerpt().toString());
+        holder.getVotesCount().setText(question.getScore().toString());
+        holder.getAnswersCount().setText(String.valueOf(question.getAnswerCount()));
+        holder.getViewsCount().setText(question.getQuestionScore().toString());
+        holder.getUserName().setText(question.getOwner().getDisplayName().toString());
+
+        List<String> tags = question.getTags();
+        for(String tag: tags){
+            TextView tagName = new TextView(activity.get());
+            tagName.setText(tag.toString());
+            tagName.setBackgroundColor(activity.get().getResources().getColor(R.color.tagBackground));
+            tagName.setPadding(10,0,10,5);
+            tagName.setTextColor(activity.get().getResources().getColor(R.color.textColor));
+
+            FlowLayout.LayoutParams layoutParams = new FlowLayout.LayoutParams(
+                    FlowLayout.LayoutParams.WRAP_CONTENT,
+                    FlowLayout.LayoutParams.WRAP_CONTENT
+            );
+            layoutParams.setMargins(
+                    10,5,10,15
+            );
+
+            holder.getTagLayout().addView(tagName, layoutParams);
+        }
     }
 
     @Override

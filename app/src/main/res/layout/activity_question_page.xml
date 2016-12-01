@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -37,14 +43,14 @@
         android:layout_below="@+id/question_page_body"
         android:layout_alignLeft="@+id/question_page_body"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="wrap_content"
+    <org.apmem.tools.layouts.FlowLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/question_page_tag_recycler"
-        android:layout_margin="@dimen/some_margin"
+        android:id="@+id/question_page_tag_layout"
         android:layout_below="@+id/question_page_info"
-        android:layout_toRightOf="@+id/question_page_score">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_alignLeft="@id/question_page_body">
+
+    </org.apmem.tools.layouts.FlowLayout>
 
     <include
         layout="@layout/question_page_user_info"
@@ -52,7 +58,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/question_page_user_info"
         android:layout_alignLeft="@+id/question_page_body"
-        android:layout_below="@+id/question_page_tag_recycler"/>
-
+        android:layout_below="@+id/question_page_tag_layout"/>
 
 </RelativeLayout>
+
+</ScrollView>

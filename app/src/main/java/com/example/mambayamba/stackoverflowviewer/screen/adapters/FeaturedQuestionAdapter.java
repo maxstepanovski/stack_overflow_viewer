@@ -4,12 +4,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.mambayamba.stackoverflowviewer.FeaturedFragment;
 import com.example.mambayamba.stackoverflowviewer.R;
 import com.example.mambayamba.stackoverflowviewer.model.questionlist.featured.Item;
 import com.example.mambayamba.stackoverflowviewer.screen.OnQuestionTitleClickListener;
 import com.example.mambayamba.stackoverflowviewer.screen.viewholders.FeaturedQuestionHolder;
+
+import org.apmem.tools.layouts.FlowLayout;
 
 import java.util.List;
 
@@ -35,17 +38,33 @@ public class FeaturedQuestionAdapter extends RecyclerView.Adapter<FeaturedQuesti
 
     @Override
     public void onBindViewHolder(FeaturedQuestionHolder holder, int position) {
-        holder.questionTitle.setText(questions.get(position).getTitle());
-        holder.questionTitle.setOnClickListener(
-                new OnQuestionTitleClickListener(fragment.getActivity(), questions.get(position).getQuestionId().toString()));
-        holder.votesCount.setText(questions.get(position).getScore().toString());
-        holder.answersCount.setText(questions.get(position).getAnswerCount().toString());
-        holder.viewsCount.setText(questions.get(position).getViewCount().toString());
-        holder.userName.setText(questions.get(position).getOwner().getDisplayName().toString());
-        if(questions.get(position).getTags().size() > 0 && !questions.get(position).getTags().get(0).isEmpty())
-            holder.tagOne.setText(questions.get(position).getTags().get(0).toString());
-        if(questions.get(position).getTags().size() > 1 && !questions.get(position).getTags().get(1).isEmpty())
-            holder.tagTwo.setText(questions.get(position).getTags().get(1).toString());
+        Item question = questions.get(position);
+        holder.getQuestionTitle().setText(question.getTitle());
+        holder.getQuestionTitle().setOnClickListener(
+                new OnQuestionTitleClickListener(fragment.getActivity(), question.getQuestionId().toString()));
+        holder.getVotesCount().setText(question.getScore().toString());
+        holder.getAnswersCount().setText(question.getAnswerCount().toString());
+        holder.getViewsCount().setText(question.getViewCount().toString());
+        holder.getUserName().setText(question.getOwner().getDisplayName().toString());
+
+        List<String> tags = question.getTags();
+        for(String tag: tags){
+            TextView tagName = new TextView(fragment.getActivity());
+            tagName.setText(tag.toString());
+            tagName.setBackgroundColor(fragment.getActivity().getResources().getColor(R.color.tagBackground));
+            tagName.setPadding(10,0,10,5);
+            tagName.setTextColor(fragment.getActivity().getResources().getColor(R.color.textColor));
+
+            FlowLayout.LayoutParams layoutParams = new FlowLayout.LayoutParams(
+                    FlowLayout.LayoutParams.WRAP_CONTENT,
+                    FlowLayout.LayoutParams.WRAP_CONTENT
+            );
+            layoutParams.setMargins(
+                    10,5,10,15
+            );
+
+            holder.getTagLayout().addView(tagName, layoutParams);
+        }
     }
 
     @Override

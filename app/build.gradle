@@ -49,4 +49,5 @@ dependencies {
     compile('me.tatarka.rxloader:rxloader:1.1.0') {
         exclude group: 'io.reactivex', module: 'rxandroid'
     }
+    compile 'org.apmem.tools:layouts:1.10@aar'
 }
