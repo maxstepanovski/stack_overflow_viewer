@@ -27,7 +27,6 @@ public class OnQuestionTitleClickListener implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-//        Log.d(TAG, "click: "+questionId);
         Intent intent = new Intent(context , QuestionPageActivity.class);
         intent.putExtra(QUESTION_ID, questionId);
         context.startActivity(intent);

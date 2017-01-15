@@ -17,8 +17,10 @@ import android.widget.TextView;
 import com.example.mambayamba.stackoverflowviewer.R;
 import com.example.mambayamba.stackoverflowviewer.model.questionlist.average.Item;
 import com.example.mambayamba.stackoverflowviewer.screen.OnQuestionTitleClickListener;
+import com.example.mambayamba.stackoverflowviewer.screen.OnTagClickListener;
 import com.example.mambayamba.stackoverflowviewer.screen.viewholders.DefaultQuestionHolder;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apmem.tools.layouts.FlowLayout;
 
 import java.util.List;
@@ -47,7 +49,9 @@ public class DefaultQuestionAdapter extends RecyclerView.Adapter<DefaultQuestion
     @Override
     public void onBindViewHolder(DefaultQuestionHolder holder, int position) {
         Item question = questions.get(position);
-        holder.getQuestionTitle().setText(question.getTitle());
+        holder.getQuestionTitle().setText(
+                StringEscapeUtils.unescapeHtml(question.getTitle())
+        );
         holder.getQuestionTitle().setOnClickListener(
                 new OnQuestionTitleClickListener(fragment.getActivity(), question.getQuestionId().toString()));
         holder.getVotesCount().setText(question.getScore().toString());
@@ -62,6 +66,7 @@ public class DefaultQuestionAdapter extends RecyclerView.Adapter<DefaultQuestion
             tagName.setBackgroundColor(fragment.getActivity().getResources().getColor(R.color.tagBackground));
             tagName.setPadding(10,0,10,5);
             tagName.setTextColor(fragment.getActivity().getResources().getColor(R.color.textColor));
+            tagName.setOnClickListener(new OnTagClickListener(fragment.getActivity(), tag.toString()));
 
             FlowLayout.LayoutParams layoutParams = new FlowLayout.LayoutParams(
                     FlowLayout.LayoutParams.WRAP_CONTENT,

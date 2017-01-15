@@ -15,23 +15,14 @@
         android:textColor="@color/textColor"
         tools:text="Android - How to use camera getSupportedPreviewSizes() for portrait orientation"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/some_double_margin"
-        android:layout_gravity="center"
-        android:id="@+id/excerpt_body_snippet"
-        tools:text="Android Enthusiasts Stack Exchange is a question and answer site for enthusiasts and power users of the Android operating system. Join them; it only takes a minute:"
-        android:layout_below="@+id/excerpt_question_title"/>
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="@dimen/some_margin"
         android:id="@+id/excerpt_linear_layout_votes"
-        android:layout_below="@+id/excerpt_body_snippet"
-        android:layout_alignLeft="@+id/excerpt_body_snippet">
+        android:layout_below="@+id/excerpt_question_title"
+        android:layout_alignLeft="@+id/excerpt_question_title">
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -53,7 +44,7 @@
         android:layout_margin="@dimen/some_margin"
         android:id="@+id/excerpt_linear_layout_answers"
         android:layout_toRightOf="@+id/excerpt_linear_layout_votes"
-        android:layout_below="@+id/excerpt_body_snippet">
+        android:layout_below="@+id/excerpt_question_title">
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -75,7 +66,7 @@
         android:layout_margin="@dimen/some_margin"
         android:id="@+id/excerpt_linear_layout_views"
         android:layout_toRightOf="@+id/excerpt_linear_layout_answers"
-        android:layout_below="@+id/excerpt_body_snippet">
+        android:layout_below="@+id/excerpt_question_title">
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -96,7 +87,7 @@
         android:text="last activity: "
         android:layout_margin="@dimen/some_margin"
         android:id="@+id/excerpt_dummy_last_activity"
-        android:layout_below="@id/excerpt_body_snippet"
+        android:layout_below="@id/excerpt_question_title"
         android:layout_toRightOf="@+id/excerpt_linear_layout_views"/>
 
     <TextView
@@ -105,7 +96,7 @@
         tools:text="User Name"
         android:layout_margin="@dimen/some_margin"
         android:id="@+id/excerpt_last_activity_user_name"
-        android:layout_below="@id/excerpt_body_snippet"
+        android:layout_below="@id/excerpt_question_title"
         android:layout_toRightOf="@+id/excerpt_dummy_last_activity"/>
 
     <org.apmem.tools.layouts.FlowLayout

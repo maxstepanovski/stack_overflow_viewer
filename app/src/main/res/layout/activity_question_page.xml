@@ -1,65 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<WebView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/activity_horizontal_margin"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/question_page_title"
-        tools:text="Random article title"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/some_margin"/>
-
-    <include
-        layout="@layout/question_page_score"
-        android:id="@+id/question_page_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/question_page_title"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/question_page_body"
-        android:layout_below="@+id/question_page_title"
-        tools:text="@string/dummy_text"
-        android:layout_toRightOf="@id/question_page_score"
-        android:layout_margin="@dimen/some_margin"/>
-
-    <include
-        layout="@layout/question_page_info"
-        android:id="@+id/question_page_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/question_page_body"
-        android:layout_alignLeft="@+id/question_page_body"/>
-
-    <org.apmem.tools.layouts.FlowLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/question_page_tag_layout"
-        android:layout_below="@+id/question_page_info"
-        android:layout_alignLeft="@id/question_page_body">
-
-    </org.apmem.tools.layouts.FlowLayout>
-
-    <include
-        layout="@layout/question_page_user_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/question_page_user_info"
-        android:layout_alignLeft="@+id/question_page_body"
-        android:layout_below="@+id/question_page_tag_layout"/>
-
-</RelativeLayout>
-
-</ScrollView>
+    android:id="@+id/question_page_body"/>

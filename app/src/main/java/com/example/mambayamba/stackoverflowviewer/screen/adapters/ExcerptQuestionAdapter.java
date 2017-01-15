@@ -11,8 +11,10 @@ import android.widget.TextView;
 import com.example.mambayamba.stackoverflowviewer.R;
 import com.example.mambayamba.stackoverflowviewer.model.questionlist.excerpt.Item;
 import com.example.mambayamba.stackoverflowviewer.screen.OnQuestionTitleClickListener;
+import com.example.mambayamba.stackoverflowviewer.screen.OnTagClickListener;
 import com.example.mambayamba.stackoverflowviewer.screen.viewholders.ExcerptQuestionHolder;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apmem.tools.layouts.FlowLayout;
 
 import java.lang.ref.WeakReference;
@@ -41,10 +43,10 @@ public class ExcerptQuestionAdapter extends RecyclerView.Adapter<ExcerptQuestion
     @Override
     public void onBindViewHolder(ExcerptQuestionHolder holder, int position) {
         Item question = questions.get(position);
-        holder.getQuestionTitle().setText(question.getTitle().toString());
+        holder.getQuestionTitle().setText(
+                StringEscapeUtils.unescapeHtml(question.getTitle().toString()));
         holder.getQuestionTitle().setOnClickListener(
                 new OnQuestionTitleClickListener(activity.get(), question.getQuestionId().toString()));
-        holder.getExcerptBodySnippet().setText(question.getExcerpt().toString());
         holder.getVotesCount().setText(question.getScore().toString());
         holder.getAnswersCount().setText(String.valueOf(question.getAnswerCount()));
         holder.getViewsCount().setText(question.getQuestionScore().toString());
@@ -57,6 +59,7 @@ public class ExcerptQuestionAdapter extends RecyclerView.Adapter<ExcerptQuestion
             tagName.setBackgroundColor(activity.get().getResources().getColor(R.color.tagBackground));
             tagName.setPadding(10,0,10,5);
             tagName.setTextColor(activity.get().getResources().getColor(R.color.textColor));
+            tagName.setOnClickListener(new OnTagClickListener(activity.get(), tag.toString()));
 
             FlowLayout.LayoutParams layoutParams = new FlowLayout.LayoutParams(
                     FlowLayout.LayoutParams.WRAP_CONTENT,

@@ -10,8 +10,10 @@ import com.example.mambayamba.stackoverflowviewer.FeaturedFragment;
 import com.example.mambayamba.stackoverflowviewer.R;
 import com.example.mambayamba.stackoverflowviewer.model.questionlist.featured.Item;
 import com.example.mambayamba.stackoverflowviewer.screen.OnQuestionTitleClickListener;
+import com.example.mambayamba.stackoverflowviewer.screen.OnTagClickListener;
 import com.example.mambayamba.stackoverflowviewer.screen.viewholders.FeaturedQuestionHolder;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apmem.tools.layouts.FlowLayout;
 
 import java.util.List;
@@ -39,7 +41,8 @@ public class FeaturedQuestionAdapter extends RecyclerView.Adapter<FeaturedQuesti
     @Override
     public void onBindViewHolder(FeaturedQuestionHolder holder, int position) {
         Item question = questions.get(position);
-        holder.getQuestionTitle().setText(question.getTitle());
+        holder.getQuestionTitle().setText(
+                StringEscapeUtils.unescapeHtml(question.getTitle()));
         holder.getQuestionTitle().setOnClickListener(
                 new OnQuestionTitleClickListener(fragment.getActivity(), question.getQuestionId().toString()));
         holder.getVotesCount().setText(question.getScore().toString());
@@ -54,6 +57,7 @@ public class FeaturedQuestionAdapter extends RecyclerView.Adapter<FeaturedQuesti
             tagName.setBackgroundColor(fragment.getActivity().getResources().getColor(R.color.tagBackground));
             tagName.setPadding(10,0,10,5);
             tagName.setTextColor(fragment.getActivity().getResources().getColor(R.color.textColor));
+            tagName.setOnClickListener(new OnTagClickListener(fragment.getActivity(), tag.toString()));
 
             FlowLayout.LayoutParams layoutParams = new FlowLayout.LayoutParams(
                     FlowLayout.LayoutParams.WRAP_CONTENT,
