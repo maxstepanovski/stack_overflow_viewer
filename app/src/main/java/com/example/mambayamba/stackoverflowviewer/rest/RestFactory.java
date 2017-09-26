@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RestFactory {
     private static final String BASE_URL = "https://api.stackexchange.com";
 
-    final public static RestApi getRestFactory(){
+    public static RestApi getRestFactory(){
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
